@@ -92,7 +92,11 @@
         <p>Поставляем греющий кабель и оборудование для коммерческих и промышленных объектов. Надёжно и в срок.</p>
         <button class="button button-light" type="button" data-lead-open="Обсуждение проекта">Обсудить проект <span aria-hidden="true">↗</span></button>
       </div>
-      <div class="hero-index" aria-hidden="true"><span>01</span><i></i><span>03</span></div>
+      <div class="hero-controls" aria-label="Управление изображениями первого экрана">
+        <button type="button" data-hero="prev" aria-label="Предыдущее изображение">←</button>
+        <output id="hero-current" aria-live="polite">01 / 03</output>
+        <button type="button" data-hero="next" aria-label="Следующее изображение">→</button>
+      </div>
     </section>
 
     <section class="solutions-intro section shell" id="about">
@@ -119,7 +123,7 @@
       <form class="calculator" id="calculator">
         <div class="calculator-heading">
           <p class="eyebrow green">Предварительный расчёт</p>
-          <h2>Калькулятор стоимости</h2>
+          <h2>Калькулятор расчета стоимости</h2>
         </div>
         <label>Тип задачи
           <select id="task-type">
@@ -151,19 +155,19 @@
       </div>
       <div class="solution-grid">
         <article class="solution-card">
-          <img src="assets/hero-industrial.webp" alt="Промышленный трубопровод с системой электрообогрева" loading="lazy" width="1998" height="787">
+          <img src="assets/hero-industrial.webp" alt="Промышленный трубопровод с системой электрообогрева" width="1998" height="787">
           <div class="card-shade"></div><span class="card-number">01</span>
           <div class="card-content"><h3>Для промышленных объектов</h3><p>Комплексные системы электрообогрева для производственных объектов, трубопроводов и резервуаров.</p></div>
           <a href="product.html" aria-label="Открыть страницу кабеля GWS">↗</a>
         </article>
         <article class="solution-card">
-          <img src="assets/roof-heating.webp" alt="Система обогрева кровли и водостока" loading="lazy" width="1536" height="1024">
+          <img src="assets/roof-heating.webp" alt="Система обогрева кровли и водостока" width="1536" height="1024">
           <div class="card-shade"></div><span class="card-number">02</span>
           <div class="card-content"><h3>Для бытового использования</h3><p>Надёжные решения для обогрева труб, кровли, водостоков и других бытовых задач.</p></div>
           <a href="#project" aria-label="Подробнее о бытовых решениях">↗</a>
         </article>
         <article class="solution-card">
-          <img src="assets/engineering-service.webp" alt="Техническое обслуживание системы электрообогрева" loading="lazy" width="1536" height="1024">
+          <img src="assets/engineering-service.webp" alt="Техническое обслуживание системы электрообогрева" width="1536" height="1024">
           <div class="card-shade"></div><span class="card-number">03</span>
           <div class="card-content"><h3>Дополнительные услуги</h3><p>Проектирование, монтаж, пусконаладка и техническое сопровождение систем электрообогрева.</p></div>
           <a href="#project" aria-label="Подробнее об инженерных услугах">↗</a>
@@ -185,6 +189,20 @@
       <div><p class="eyebrow green">Инженерная консультация</p><h2>Готовы обсудить ваш проект?</h2></div>
       <button class="button button-primary" type="button" data-lead-open="Обсуждение проекта">Обсудить проект <span aria-hidden="true">↗</span></button>
     </section>
+
+    <section class="trust-section shell" aria-labelledby="trust-title">
+      <div class="trust-heading"><p class="eyebrow green">Работаем по всей России</p><h2 id="trust-title">Почему выбирают системы обогрева КОРДА?</h2></div>
+      <div class="trust-grid">
+        <article><span>01</span><h3>Прямые поставки</h3><p>Работаем напрямую с производителями оборудования.</p></article>
+        <article><span>02</span><h3>Высокая репутация компании</h3><p>Отвечаем за качество решений и соблюдение обязательств.</p></article>
+        <article><span>03</span><h3>Подбор наилучшего решения</h3><p>Учитываем технические условия и бюджет объекта.</p></article>
+        <article><span>04</span><h3>Большой складской запас</h3><p>Поддерживаем запас востребованного оборудования.</p></article>
+        <article><span>05</span><h3>Гибкая система скидок</h3><p>Предлагаем условия с учётом объёма и состава заказа.</p></article>
+        <article><span>06</span><h3>Оптовые и розничные продажи</h3><p>Комплектуем как крупные объекты, так и частные заказы.</p></article>
+        <article><span>07</span><h3>Выбор способа оплаты</h3><p>Помогаем выбрать подходящий способ расчёта.</p></article>
+        <article><span>08</span><h3>Быстрая доставка</h3><p>Организуем отправку оборудования по России.</p></article>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer" id="contacts">
@@ -193,9 +211,9 @@
         <img src="assets/korda-logo.png" alt="КОРДА">
         <p>Системы электрообогрева и техническая изоляция для промышленных и коммерческих объектов.</p>
       </div>
-      <div class="footer-column"><h2>Контакты</h2><a href="tel:+78123333249">8 (812) 333-32-49</a><a href="tel:+78005000519">8 (800) 500-05-19</a><a href="mailto:zayavka@korda.spb.ru">zayavka@korda.spb.ru</a><span>Пн–пт, 9:00–18:00</span></div>
+      <div class="footer-column"><h2>Контакты</h2><a href="tel:+78123333249">8 (812) 333-32-49</a><a href="tel:+78124072320">8 (812) 407-23-20</a><a href="tel:+78005000519">8 (800) 500-05-19</a><a href="mailto:zayavka@korda.spb.ru">zayavka@korda.spb.ru</a><span>Пн–пт, 9:00–18:00</span></div>
       <div class="footer-column"><h2>Адрес</h2><p>198095, Санкт-Петербург,<br>ул. Розенштейна, д. 21, оф. 508</p><p>Склад: ул. Розенштейна, д. 21</p><a href="https://yandex.ru/maps/?text=Санкт-Петербург%2C%20ул.%20Розенштейна%2C%2021" target="_blank" rel="noopener">Открыть карту ↗</a></div>
-      <div class="footer-column"><h2>Информация</h2><button id="certificates" type="button" data-lead-open="Запрос сертификатов">Сертификаты</button><a id="faq" href="#project">Частые вопросы</a><button type="button" data-lead-open="Документы по охране труда">Документы по охране труда</button></div>
+      <div class="footer-column"><h2>Информация</h2><button id="certificates" type="button" data-lead-open="Запрос сертификатов">Сертификаты</button><a id="faq" href="#project">Частые вопросы</a><button type="button" data-lead-open="Документы по охране труда">Документы по охране труда</button><a href="sitemap.xml">Карта сайта</a></div>
     </div>
     <div class="footer-bottom shell"><span>ООО «ТД КОРДА» · ОГРН 1147847084835 · ИНН 7839492885</span><span>© 2026 КОРДА</span></div>
   </footer>
