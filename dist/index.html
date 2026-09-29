@@ -66,18 +66,18 @@
             <a href="#about">О компании</a><a href="#brands">Бренды</a><a href="#certificates">Сертификаты</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
           </div>
           <div class="nav-row">
-            <a href="#solutions">Промышленный обогрев</a><a href="#solutions">Бытовые решения</a><a href="#calculator">Подобрать кабель</a><a href="#solutions">Термостаты</a><a href="#solutions">Комплектующие и аксессуары</a>
+            <a href="#solutions">Промышленный обогрев</a><a href="#solutions">Бытовые решения</a><a href="product.html">Подобрать кабель</a><a href="#solutions">Термостаты</a><a href="#solutions">Комплектующие и аксессуары</a>
           </div>
         </div>
         <div class="header-actions">
-          <a class="button button-outline" href="mailto:zayavka@korda.spb.ru?subject=Запросить%20опросный%20лист">Запросить опросный лист</a>
-          <a class="button button-primary" href="#calculator">Запросить расчёт</a>
+          <button class="button button-outline" type="button" data-lead-open="Опросный лист">Запросить опросный лист</button>
+          <button class="button button-primary" type="button" data-lead-open="Расчёт проекта">Запросить расчёт</button>
         </div>
       </nav>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" hidden>
         <a href="#about">О компании</a><a href="#brands">Бренды</a><a href="#certificates">Сертификаты</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
-        <a href="#solutions">Промышленный обогрев</a><a href="#solutions">Бытовые решения</a><a href="#calculator">Подобрать кабель</a><a href="#solutions">Термостаты</a><a href="#solutions">Комплектующие и аксессуары</a>
-        <a class="button button-primary" href="#calculator">Запросить расчёт</a>
+        <a href="#solutions">Промышленный обогрев</a><a href="#solutions">Бытовые решения</a><a href="product.html">Подобрать кабель</a><a href="#solutions">Термостаты</a><a href="#solutions">Комплектующие и аксессуары</a>
+        <button class="button button-primary" type="button" data-lead-open="Расчёт проекта">Запросить расчёт</button>
       </nav>
     </div>
   </header>
@@ -90,7 +90,7 @@
         <p class="eyebrow">Промышленный электрообогрев</p>
         <h1 id="hero-title">Инженерные системы обогрева и теплоизоляции</h1>
         <p>Поставляем греющий кабель и оборудование для коммерческих и промышленных объектов. Надёжно и в срок.</p>
-        <a class="button button-light" href="#project">Обсудить проект <span aria-hidden="true">↗</span></a>
+        <button class="button button-light" type="button" data-lead-open="Обсуждение проекта">Обсудить проект <span aria-hidden="true">↗</span></button>
       </div>
       <div class="hero-index" aria-hidden="true"><span>01</span><i></i><span>03</span></div>
     </section>
@@ -154,7 +154,7 @@
           <img src="assets/hero-industrial.webp" alt="Промышленный трубопровод с системой электрообогрева" loading="lazy" width="1998" height="787">
           <div class="card-shade"></div><span class="card-number">01</span>
           <div class="card-content"><h3>Для промышленных объектов</h3><p>Комплексные системы электрообогрева для производственных объектов, трубопроводов и резервуаров.</p></div>
-          <a href="#project" aria-label="Подробнее о промышленных решениях">↗</a>
+          <a href="product.html" aria-label="Открыть страницу кабеля GWS">↗</a>
         </article>
         <article class="solution-card">
           <img src="assets/roof-heating.webp" alt="Система обогрева кровли и водостока" loading="lazy" width="1536" height="1024">
@@ -183,7 +183,7 @@
 
     <section class="project-cta shell" id="project">
       <div><p class="eyebrow green">Инженерная консультация</p><h2>Готовы обсудить ваш проект?</h2></div>
-      <a class="button button-primary" href="mailto:zayavka@korda.spb.ru?subject=Обсудить%20проект">Обсудить проект <span aria-hidden="true">↗</span></a>
+      <button class="button button-primary" type="button" data-lead-open="Обсуждение проекта">Обсудить проект <span aria-hidden="true">↗</span></button>
     </section>
   </main>
 
@@ -195,10 +195,26 @@
       </div>
       <div class="footer-column"><h2>Контакты</h2><a href="tel:+78123333249">8 (812) 333-32-49</a><a href="tel:+78005000519">8 (800) 500-05-19</a><a href="mailto:zayavka@korda.spb.ru">zayavka@korda.spb.ru</a><span>Пн–пт, 9:00–18:00</span></div>
       <div class="footer-column"><h2>Адрес</h2><p>198095, Санкт-Петербург,<br>ул. Розенштейна, д. 21, оф. 508</p><p>Склад: ул. Розенштейна, д. 21</p><a href="https://yandex.ru/maps/?text=Санкт-Петербург%2C%20ул.%20Розенштейна%2C%2021" target="_blank" rel="noopener">Открыть карту ↗</a></div>
-      <div class="footer-column"><h2>Информация</h2><a id="certificates" href="mailto:zayavka@korda.spb.ru?subject=Запрос%20сертификатов">Сертификаты</a><a id="faq" href="#project">Частые вопросы</a><a href="mailto:zayavka@korda.spb.ru?subject=Документы%20по%20охране%20труда">Документы по охране труда</a></div>
+      <div class="footer-column"><h2>Информация</h2><button id="certificates" type="button" data-lead-open="Запрос сертификатов">Сертификаты</button><a id="faq" href="#project">Частые вопросы</a><button type="button" data-lead-open="Документы по охране труда">Документы по охране труда</button></div>
     </div>
     <div class="footer-bottom shell"><span>ООО «ТД КОРДА» · ОГРН 1147847084835 · ИНН 7839492885</span><span>© 2026 КОРДА</span></div>
   </footer>
+
+  <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-title">
+    <button class="dialog-close" type="button" data-lead-close aria-label="Закрыть форму">×</button>
+    <p class="eyebrow green">Свяжемся в рабочее время</p>
+    <h2 id="lead-title">Оставить заявку</h2>
+    <p class="dialog-copy">Оставьте телефон — инженер уточнит задачу и предложит подходящее решение.</p>
+    <form class="lead-form" id="lead-form">
+      <input type="hidden" name="requestType" id="request-type" value="Обсуждение проекта">
+      <label>Ваше имя<input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required></label>
+      <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 999 000-00-00" required></label>
+      <label>Комментарий<textarea name="message" rows="3" placeholder="Коротко опишите задачу"></textarea></label>
+      <label class="consent"><input name="consent" type="checkbox" required><span>Согласен на обработку персональных данных</span></label>
+      <button class="button button-primary button-wide" type="submit">Отправить заявку</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
   <script src="assets/app.js"></script>
 </body>
 </html>

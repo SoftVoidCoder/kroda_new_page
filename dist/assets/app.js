@@ -47,3 +47,58 @@ search?.addEventListener('input', () => {
   const match = searchableLinks.find((link) => link.textContent.toLowerCase().includes(query));
   if (match) search.setAttribute('aria-label', `Найдено: ${match.textContent}`);
 });
+
+const leadDialog = document.querySelector('#lead-dialog');
+const leadForm = document.querySelector('#lead-form');
+const requestType = document.querySelector('#request-type');
+const formStatus = document.querySelector('.form-status');
+
+document.querySelectorAll('[data-lead-open]').forEach((button) => {
+  button.addEventListener('click', () => {
+    requestType.value = button.dataset.leadOpen || 'Заявка с сайта';
+    formStatus.textContent = '';
+    formStatus.classList.remove('is-error');
+    leadDialog.showModal();
+  });
+});
+
+document.querySelector('[data-lead-close]')?.addEventListener('click', () => leadDialog.close());
+leadDialog?.addEventListener('click', (event) => {
+  if (event.target === leadDialog) leadDialog.close();
+});
+
+leadForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const submitButton = leadForm.querySelector('button[type="submit"]');
+  const payload = Object.fromEntries(new FormData(leadForm));
+  submitButton.disabled = true;
+  submitButton.textContent = 'Отправляем…';
+  formStatus.textContent = '';
+  formStatus.classList.remove('is-error');
+
+  try {
+    const response = await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error('Request failed');
+    leadForm.reset();
+    formStatus.textContent = 'Заявка принята. Мы свяжемся с вами в рабочее время.';
+    setTimeout(() => leadDialog.close(), 1800);
+  } catch (error) {
+    formStatus.textContent = 'Не удалось отправить. Позвоните 8 (800) 500-05-19.';
+    formStatus.classList.add('is-error');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Отправить заявку';
+  }
+});
+
+const applicationSlider = document.querySelector('[data-slider]');
+document.querySelectorAll('[data-slide]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const direction = button.dataset.slide === 'next' ? 1 : -1;
+    applicationSlider?.scrollBy({ left: applicationSlider.clientWidth * direction, behavior: 'smooth' });
+  });
+});

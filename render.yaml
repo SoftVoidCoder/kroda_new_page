@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: korda-new-page
+    runtime: python
+    plan: free
+    buildCommand: echo "No build required"
+    startCommand: python3 server.py
+    healthCheckPath: /health
+    autoDeployTrigger: commit
