@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="snow" viewBox="0 0 24 24"><path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5l-15.6 11M9 4l3 3 3-3M9 20l3-3 3 3M4 10l4 1-1-4M20 14l-4-1 1 4M20 10l-4 1 1-4M4 14l4-1-1 4"/></symbol>
+  <symbol id="drop" viewBox="0 0 24 24"><path d="M12 3S6 10 6 15a6 6 0 0 0 12 0c0-5-6-12-6-12z"/><path d="M9 16c.5 1.5 1.5 2 3 2"/></symbol>
+  <symbol id="valve" viewBox="0 0 24 24"><path d="M3 9h5l4 3-4 3H3zM21 9h-5l-4 3 4 3h5zM12 12V7M8 4h8M12 7 8 4M12 7l4-3"/></symbol>
+  <symbol id="gauge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 12l4-3M7 16h10M12 4v2"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 2.8 8.2 7 10 4.2-1.8 7-5 7-10V6z"/><path d="m9 12 2 2 4-5"/></symbol>
+  <symbol id="crystal" viewBox="0 0 24 24"><path d="m12 3 7 5v8l-7 5-7-5V8zM5 8l7 4 7-4M12 12v9"/></symbol>
+  <symbol id="heat" viewBox="0 0 24 24"><path d="M8 20c-3-3-2-7 1-10 0 3 2 3 2 5 2-2 1-6 4-10 4 4 4 10 1 14-2 2-6 3-8 1z"/></symbol>
+  <symbol id="thermometer" viewBox="0 0 24 24"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a5 5 0 1 1-4 0z"/><path d="M12 8v9"/></symbol>
+  <symbol id="sensor" viewBox="0 0 24 24"><rect x="7" y="4" width="10" height="16" rx="2"/><path d="M10 8h4M10 12h4M12 16v1M4 9H2M22 9h-2"/></symbol>
+  <symbol id="layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path d="m13 2-7 12h6l-1 8 7-12h-6z"/></symbol>
+  <symbol id="pipeline" viewBox="0 0 24 24"><path d="M3 8h6v8H3zM15 8h6v8h-6zM9 10h6M9 14h6M5 5v3M19 5v3"/></symbol>
+</svg>
