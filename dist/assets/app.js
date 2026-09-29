@@ -104,7 +104,6 @@ document.querySelectorAll('[data-slide]').forEach((button) => {
 });
 
 const heroImage = document.querySelector('.hero-image');
-const heroCurrent = document.querySelector('#hero-current');
 const heroSlides = [
   { src: 'assets/hero-industrial.webp', alt: 'Промышленная система электрообогрева трубопровода' },
   { src: 'assets/roof-heating.webp', alt: 'Система электрообогрева кровли и водостоков' },
@@ -112,13 +111,19 @@ const heroSlides = [
 ];
 let heroIndex = 0;
 
-document.querySelectorAll('[data-hero]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const direction = button.dataset.hero === 'next' ? 1 : -1;
-    heroIndex = (heroIndex + direction + heroSlides.length) % heroSlides.length;
+if (heroImage) {
+  heroSlides.slice(1).forEach(({ src }) => {
+    const image = new Image();
+    image.src = src;
+  });
+
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+    heroImage.classList.add('is-changing');
+    setTimeout(() => {
     heroImage.src = heroSlides[heroIndex].src;
     heroImage.alt = heroSlides[heroIndex].alt;
-    heroCurrent.value = `${String(heroIndex + 1).padStart(2, '0')} / ${String(heroSlides.length).padStart(2, '0')}`;
-    heroCurrent.textContent = heroCurrent.value;
-  });
-});
+      heroImage.classList.remove('is-changing');
+    }, 180);
+  }, 8000);
+}
