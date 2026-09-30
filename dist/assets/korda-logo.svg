@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 230" role="img" aria-labelledby="title">
+  <title id="title">КОРДА</title>
+  <rect width="760" height="230" fill="#fff"/>
+  <g fill="none" stroke="#057846" stroke-linecap="square" stroke-linejoin="miter">
+    <path stroke-width="13" d="M74 78v78l67 39 67-39V78l-67-39z"/>
+    <path stroke-width="13" d="M100 92v49l41 24 41-24V92l-41-24z"/>
+    <path stroke-width="11" d="M74 78H52v31M52 127v29h22M141 39V21h28"/>
+  </g>
+  <g fill="#057846">
+    <rect x="122" y="93" width="18" height="55" rx="2"/>
+    <rect x="151" y="108" width="18" height="40" rx="2"/>
+    <rect x="151" y="82" width="18" height="16" rx="2"/>
+    <rect x="181" y="118" width="18" height="30" rx="2"/>
+  </g>
+  <text x="255" y="150" fill="#057846" font-family="Montserrat, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="2">КОРДА</text>
+</svg>

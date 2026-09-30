@@ -51,7 +51,7 @@
   <header class="site-header">
     <div class="header-primary shell">
       <a class="brand" href="#top" aria-label="КОРДА — на главную">
-        <img src="assets/korda-logo.png" alt="КОРДА">
+        <img src="assets/korda-logo.svg" alt="КОРДА">
       </a>
       <form class="site-search" role="search" onsubmit="return false">
         <label class="sr-only" for="site-search">Поиск по сайту</label>
@@ -128,29 +128,40 @@
 
       <form class="calculator" id="calculator">
         <div class="calculator-heading">
-          <p class="eyebrow green">Предварительный расчёт</p>
-          <h2>Калькулятор расчета стоимости</h2>
+          <div>
+            <p class="eyebrow green">Предварительный расчёт</p>
+            <h2>Калькулятор стоимости</h2>
+          </div>
+          <span class="calculator-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 15V9"></path><path d="M12 15V7"></path><path d="M16 15v-4"></path></svg>
+          </span>
         </div>
-        <label>Тип задачи
-          <select id="task-type">
-            <option value="pipe">Обогрев трубопровода</option>
-            <option value="roof">Обогрев кровли и водостоков</option>
-            <option value="floor">Обогрев площадок и пола</option>
-            <option value="tank">Обогрев резервуаров</option>
-          </select>
-        </label>
-        <label>Тип объекта
-          <select id="object-type">
-            <option value="industrial">Промышленный объект</option>
-            <option value="commercial">Коммерческий объект</option>
-            <option value="private">Частный объект</option>
-          </select>
-        </label>
-        <div class="range-label"><label for="scope">Длина / площадь</label><output id="scope-value" for="scope">120 м</output></div>
-        <input id="scope" type="range" min="10" max="1000" value="120" step="10">
-        <div class="range-scale" aria-hidden="true"><span>10</span><span>1000</span></div>
-        <button class="button button-primary button-wide" type="submit">Рассчитать стоимость</button>
-        <p class="estimate" id="estimate" role="status">Укажите параметры — мы подготовим точный расчёт после уточнения условий объекта.</p>
+        <div class="calculator-fields">
+          <label>Тип задачи
+            <select id="task-type">
+              <option value="pipe">Обогрев трубопровода</option>
+              <option value="roof">Обогрев кровли и водостоков</option>
+              <option value="floor">Обогрев площадок и пола</option>
+              <option value="tank">Обогрев резервуаров</option>
+            </select>
+          </label>
+          <label>Тип объекта
+            <select id="object-type">
+              <option value="industrial">Промышленный объект</option>
+              <option value="commercial">Коммерческий объект</option>
+              <option value="private">Частный объект</option>
+            </select>
+          </label>
+          <div class="range-wrap">
+            <div class="range-label"><label for="scope">Длина / площадь</label><output id="scope-value" for="scope">120 м</output></div>
+            <input id="scope" type="range" min="10" max="1000" value="120" step="10">
+            <div class="range-scale" aria-hidden="true"><span>10</span><span>1000</span></div>
+          </div>
+        </div>
+        <div class="calculator-summary">
+          <p class="estimate" id="estimate" role="status">Укажите параметры — инженер подготовит точный расчёт после уточнения условий объекта.</p>
+          <button class="button button-primary button-wide" type="submit">Рассчитать стоимость</button>
+        </div>
       </form>
     </section>
 
@@ -262,7 +273,7 @@
   <footer class="site-footer" id="contacts">
     <div class="footer-main shell">
       <div class="footer-brand">
-        <img src="assets/korda-logo.png" alt="КОРДА">
+        <img src="assets/korda-logo.svg" alt="КОРДА">
         <p>Системы электрообогрева и техническая изоляция для промышленных и коммерческих объектов.</p>
       </div>
       <div class="footer-column"><h2>Контакты</h2><a href="tel:+78123333249">8 (812) 333-32-49</a><a href="tel:+78124072320">8 (812) 407-23-20</a><a href="tel:+78005000519">8 (800) 500-05-19</a><a href="mailto:zayavka@korda.spb.ru">zayavka@korda.spb.ru</a><span>Пн–пт, 9:00–18:00</span></div>
