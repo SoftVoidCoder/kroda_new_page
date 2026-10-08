@@ -191,6 +191,7 @@
 .page-wellhead .risk-grid,.page-wellhead .case-grid{grid-template-columns:repeat(4,1fr)}
 .page-wellhead .case-card{min-height:255px;background:#fff}
 
+.page-surface .inner-main h2,.page-wellhead .inner-main h2{font-size:clamp(2rem,3.2vw,3.4rem)}
 .page-surface .surface-safety-title{font-size:clamp(2rem,3.2vw,3.4rem)}
 .data-icon{display:flex;width:46px;height:46px;align-items:center;justify-content:center;margin-bottom:26px;border:1px solid #bddbc9;border-radius:8px;background:#eef7f2;color:var(--green-700)}
 .data-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
