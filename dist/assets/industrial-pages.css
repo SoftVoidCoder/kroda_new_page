@@ -201,6 +201,10 @@
 .wellhead-process .process-photo{position:static;display:flex;height:100%;flex-direction:column}
 .wellhead-process .process-photo img{flex:1;height:auto;min-height:0}
 
+.large-tank-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.large-tank-photos .object-photo{height:360px}
+@media(max-width:560px){.large-tank-photos{grid-template-columns:1fr}.large-tank-photos .object-photo{height:280px}}
+
 @media(max-width:1180px){.page-surface .why-grid,.page-surface .risk-grid,.page-surface .case-grid,.page-wellhead .why-grid,.page-wellhead .risk-grid,.page-wellhead .case-grid{grid-template-columns:repeat(3,1fr)}.wellhead-process{grid-template-columns:1fr}.wellhead-process .process-photo{position:static}.wellhead-process .process-photo img{height:520px}}
 @media(max-width:820px){.page-surface .info-grid,.page-wellhead .info-grid,.page-surface .why-grid,.page-surface .risk-grid,.page-surface .case-grid,.page-wellhead .why-grid,.page-wellhead .risk-grid,.page-wellhead .case-grid,.wellhead-objects{grid-template-columns:repeat(2,1fr)}.surface-objects{grid-template-columns:1fr}.page-surface .steps-grid,.page-wellhead .steps-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.page-surface .info-grid,.surface-object-grid,.page-surface .why-grid,.page-surface .risk-grid,.page-surface .case-grid,.page-surface .steps-grid,.page-wellhead .info-grid,.wellhead-objects,.page-wellhead .why-grid,.page-wellhead .steps-grid,.page-wellhead .risk-grid,.page-wellhead .case-grid{grid-template-columns:1fr}.page-surface .info-card,.surface-object-grid article,.page-surface .why-card,.page-surface .step-card,.page-surface .case-card,.page-wellhead .info-card,.wellhead-objects article,.page-wellhead .why-card,.page-wellhead .step-card,.page-wellhead .case-card{min-height:0}.surface-photo img,.wellhead-process .process-photo img{height:300px}.wellhead-process .process-photo{height:auto}.wellhead-objects article::before{margin-bottom:32px}}
