@@ -244,6 +244,17 @@
         border-radius: 18px;
         padding: 30px;
       }
+      .diagram.photo {
+        aspect-ratio: 4 / 3;
+        padding: 0;
+        overflow: hidden;
+      }
+      .diagram.photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       .diagram svg {
         width: 100%;
         height: auto;
@@ -837,103 +848,12 @@
       </section>
       <section id="solution">
         <div class="wrap split">
-          <div class="diagram">
-            <svg
-              viewBox="0 0 530 380"
-              role="img"
-              aria-label="Схема системы обогрева: трубопровод, кабель, датчик и терморегулятор"
-            >
-              <rect width="530" height="380" rx="18" fill="#e5f2ea" />
-              <rect
-                x="55"
-                y="138"
-                width="415"
-                height="98"
-                rx="48"
-                fill="#9bbcaf"
-                stroke="#477765"
-                stroke-width="4"
-              />
-              <rect
-                x="55"
-                y="158"
-                width="415"
-                height="58"
-                rx="29"
-                fill="#c9ddd2"
-              />
-              <path
-                d="M70 213C125 142 180 142 235 213S345 284 400 213 455 142 475 176"
-                fill="none"
-                stroke="#159744"
-                stroke-width="9"
-                stroke-linecap="round"
-              />
-              <rect
-                x="310"
-                y="34"
-                width="172"
-                height="64"
-                rx="10"
-                fill="#fff"
-                stroke="#159744"
-                stroke-width="3"
-              />
-              <text
-                x="396"
-                y="60"
-                font-family="Arial"
-                text-anchor="middle"
-                font-size="15"
-                fill="#163c28"
-              >
-                Терморегулятор
-              </text>
-              <text
-                x="396"
-                y="83"
-                font-family="Arial"
-                text-anchor="middle"
-                font-size="12"
-                fill="#52675c"
-              >
-                Управление нагревом
-              </text>
-              <path
-                d="M396 98V133"
-                stroke="#159744"
-                stroke-width="3"
-                stroke-dasharray="6 5"
-              />
-              <circle
-                cx="175"
-                cy="140"
-                r="9"
-                fill="#fff"
-                stroke="#159744"
-                stroke-width="4"
-              />
-              <path d="M175 130V89H80" stroke="#159744" stroke-width="3" />
-              <text
-                x="77"
-                y="80"
-                font-family="Arial"
-                font-size="15"
-                fill="#163c28"
-              >
-                Датчик
-              </text>
-              <text
-                x="265"
-                y="310"
-                text-anchor="middle"
-                font-family="Arial"
-                font-size="16"
-                fill="#254d3b"
-              >
-                Кабель + теплоизоляция
-              </text>
-            </svg>
+          <div class="diagram photo">
+            <img
+              src="assets/pipeline-maintenance/system-installation-v2.png"
+              alt="Греющий кабель, датчик температуры и терморегулятор на трубопроводе"
+              loading="lazy"
+            />
           </div>
           <div>
             <div class="eyebrow">Комплексное решение</div>
