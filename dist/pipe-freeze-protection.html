@@ -57,6 +57,28 @@
         margin-left: auto;
         font-size: 13px;
       }
+      .nav-dropdown { position: relative; }
+      .nav-trigger { display: inline-flex; gap: 5px; align-items: center; }
+      .nav-dropdown-menu {
+        position: absolute;
+        z-index: 20;
+        top: calc(100% + 12px);
+        left: 0;
+        width: 310px;
+        padding: 8px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 16px 40px #1021261a;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition: .18s;
+      }
+      .nav-dropdown-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 13px; }
+      .nav-dropdown-menu a { display: block; padding: 11px 12px; border-radius: 7px; }
+      .nav-dropdown-menu a:hover, .nav-dropdown-menu a:focus-visible, .nav-dropdown-menu .active-nav { background: #edf5ef; color: var(--green); }
+      .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: none; }
       .btn {
         display: inline-flex;
         padding: 14px 22px;
@@ -633,10 +655,18 @@
   <body>
     <header>
       <div class="wrap nav">
-        <a href="https://korda.su/" class="logo" aria-label="КОРДА — главная"
+        <a href="index.html" class="logo" aria-label="КОРДА — главная"
           ><span>К</span>ОРДА</a
         >
-        <nav class="navlinks">
+        <nav class="navlinks" aria-label="Навигация">
+          <div class="nav-dropdown">
+            <a class="nav-trigger" href="pipe-freeze-protection.html">Бытовые решения <span aria-hidden="true">⌄</span></a>
+            <div class="nav-dropdown-menu">
+              <a class="active-nav" href="pipe-freeze-protection.html">Защита труб от замерзания</a>
+              <a href="pipeline-temperature-maintenance.html">Стабильная температура трубопроводов</a>
+              <a href="underfloor-heating.html">Тёплый пол</a>
+            </div>
+          </div>
           <a href="#zones">Применение</a><a href="#solution">Решение</a
           ><a href="#methods">Монтаж</a><a href="#equipment">Оборудование</a
           ><a href="#calculation">Расчёт</a>
