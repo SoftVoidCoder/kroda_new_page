@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Обогрев грунта в теплице</title>
+  <desc id="desc">Теплица с растениями и греющим кабелем в слое грунта</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#dff5e5"/>
+      <stop offset="1" stop-color="#f7fff6"/>
+    </linearGradient>
+    <pattern id="earth" width="32" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="8" r="3" fill="#6e5035" opacity=".3"/>
+      <circle cx="25" cy="19" r="3" fill="#6e5035" opacity=".3"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="720" fill="url(#sky)"/>
+  <path d="M110 350 280 76h640l170 274" fill="none" stroke="#85b5a0" stroke-width="20" stroke-linecap="round"/>
+  <path d="M280 76v274M600 76v274M920 76v274" stroke="#b6d6c8" stroke-width="10"/>
+  <path d="M120 350h960" stroke="#a4c9b5" stroke-width="18"/>
+  <rect x="120" y="360" width="960" height="310" rx="22" fill="#8e6748"/>
+  <rect x="120" y="360" width="960" height="310" rx="22" fill="url(#earth)"/>
+  <rect x="120" y="505" width="960" height="78" fill="#e7d19c"/>
+  <rect x="120" y="583" width="960" height="34" fill="#b2d8ed"/>
+  <rect x="120" y="617" width="960" height="53" fill="#a7b3aa"/>
+  <path d="M175 545c95-45 145 45 240 0s145 45 240 0 145 45 240 0 110 35 150 0" fill="none" stroke="#e46e33" stroke-width="19" stroke-linecap="round"/>
+  <path d="M175 545c95-45 145 45 240 0s145 45 240 0 145 45 240 0 110 35 150 0" fill="none" stroke="#ffd29d" stroke-width="5"/>
+  <g fill="#4b9b58" stroke="#3d8150" stroke-width="7">
+    <path d="M285 375V230M490 375V205M710 375V230M915 375V205"/>
+    <ellipse cx="245" cy="280" rx="63" ry="27" transform="rotate(30 245 280)"/>
+    <ellipse cx="325" cy="258" rx="63" ry="27" transform="rotate(-30 325 258)"/>
+    <ellipse cx="450" cy="258" rx="67" ry="29" transform="rotate(30 450 258)"/>
+    <ellipse cx="530" cy="235" rx="67" ry="29" transform="rotate(-30 530 235)"/>
+    <ellipse cx="670" cy="280" rx="63" ry="27" transform="rotate(30 670 280)"/>
+    <ellipse cx="750" cy="258" rx="63" ry="27" transform="rotate(-30 750 258)"/>
+    <ellipse cx="875" cy="258" rx="67" ry="29" transform="rotate(30 875 258)"/>
+    <ellipse cx="955" cy="235" rx="67" ry="29" transform="rotate(-30 955 235)"/>
+  </g>
+  <path d="M610 525V390h425" fill="none" stroke="#3d7c6b" stroke-width="9" stroke-dasharray="14 14"/>
+  <rect x="925" y="308" width="165" height="92" rx="16" fill="#fff" stroke="#87b3a0" stroke-width="7"/>
+  <rect x="956" y="333" width="103" height="42" rx="8" fill="#e0f4e8"/>
+  <text x="1007" y="363" font-family="system-ui,sans-serif" font-size="28" font-weight="800" fill="#08764b" text-anchor="middle">+20°</text>
+</svg>
