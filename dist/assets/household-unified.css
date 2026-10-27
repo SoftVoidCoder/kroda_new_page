@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
-@import url("styles.css?v=logo-20261005");
-@import url("industrial-pages.css?v=20261027-compact");
+@import url("styles.css?v=20261027-buttons");
+@import url("industrial-pages.css?v=20261027-buttons");
 
 body .hero,
 body .hero-custom {
@@ -202,8 +202,9 @@ body .card-photo { height: auto !important; }
 
 .legacy-household .hero,
 .legacy-household .hero-custom {
+  height: auto;
   min-height: 480px;
-  max-height: 520px;
+  max-height: none;
 }
 
 .legacy-household .hero .hero-grid,
@@ -225,6 +226,34 @@ body .card-photo { height: auto !important; }
 .legacy-household .hero-custom .lead {
   max-width: 650px;
   font-size: .98rem;
+}
+
+.legacy-household .hero .hero-actions,
+.legacy-household .hero .actions,
+.legacy-household .hero-custom .actionrow { gap: 12px; }
+
+.legacy-household .hero :is(.btn, .button),
+.legacy-household .hero-custom .actionrow .button {
+  box-sizing: border-box;
+  width: 240px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font: 700 .84rem/1.2 "Montserrat", sans-serif;
+}
+
+.legacy-household .hero :is(.btn-green, .btn:not(.outline), .button:not(.ghost)),
+.legacy-household .hero-custom .actionrow .button:not(.ghost) {
+  border-color: var(--green-900);
+  background: var(--green-900);
+  color: #fff;
+}
+
+.legacy-household .hero :is(.btn-white, .btn.outline),
+.legacy-household .hero-custom .actionrow .button.ghost {
+  border: 1px solid rgba(255, 255, 255, .62);
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
 }
 
 .household-detail figcaption,
@@ -324,6 +353,9 @@ body .card-photo { height: auto !important; }
 }
 
 @media (max-width: 560px) {
+  .legacy-household .hero :is(.btn, .button),
+  .legacy-household .hero-custom .actionrow .button { width: 100%; }
+
   .legacy-household .hero h1,
   .legacy-household .hero-custom h1 { font-size: clamp(2rem, 10vw, 2.7rem); }
 

@@ -256,5 +256,6 @@
 
 /* Compact shared hero: it introduces the page without hiding the next section. */
 .industrial-hero,.industrial-hero-copy{min-height:500px}.industrial-hero-copy{padding:48px 54px}.industrial-hero h1{max-width:760px;font-size:clamp(2.15rem,2.65vw,3.15rem);line-height:1.04}.household-detail figcaption{display:none!important}
+.inner-page figcaption{display:none!important}
 @media(max-width:820px){.industrial-hero,.industrial-hero-copy{min-height:540px}.industrial-hero-copy{padding:38px 24px}}
 @media(max-width:560px){.industrial-hero,.industrial-hero-copy{min-height:510px}.industrial-hero h1{font-size:clamp(2rem,10vw,2.75rem)}}
