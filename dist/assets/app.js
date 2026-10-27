@@ -1,3 +1,68 @@
+const legacyHouseholdPages = new Set([
+  'pipe-freeze-protection.html',
+  'pipeline-temperature-maintenance.html',
+  'underfloor-heating.html',
+  'household-reservoir-heating.html',
+  'household-soil-heating.html'
+]);
+
+if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
+  document.body.classList.add('inner-page', 'household-detail', 'legacy-household');
+  document.querySelector('main')?.classList.add('inner-main');
+
+  const unifiedStyles = document.querySelector('link[href*="household-unified.css"]');
+  if (unifiedStyles) document.head.append(unifiedStyles);
+
+  const oldHeader = document.querySelector('body > header');
+  if (oldHeader && !oldHeader.classList.contains('site-header')) {
+    oldHeader.outerHTML = `
+      <header class="site-header">
+        <div class="header-primary shell">
+          <a class="brand" href="index.html"><img src="assets/korda-mark.png" alt="КОРДА"></a>
+          <form class="site-search" role="search" onsubmit="return false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+            <input id="site-search" type="search" placeholder="Поиск">
+          </form>
+          <div class="header-contact"><a href="mailto:zayavka@korda.spb.ru">zayavka@korda.spb.ru</a><span>9:00–18:00, пн–пт</span></div>
+          <div class="header-phones"><a href="tel:+78005000519">8 (800) 500-05-19</a><a href="tel:+78123333249">8 (812) 333-32-49</a></div>
+          <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+        </div>
+        <div class="header-nav-wrap">
+          <nav class="header-nav shell">
+            <div class="nav-groups">
+              <div class="nav-row nav-row-small"><a href="index.html#about">О компании</a><a href="index.html#brands">Бренды</a><a href="index.html#certificates">Сертификаты</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакты</a></div>
+              <div class="nav-row">
+                <div class="nav-dropdown"><a class="nav-trigger" href="industrial-solutions.html">Промышленный электрообогрев <span>⌄</span></a><div class="nav-dropdown-menu"><a href="industrial-small.html">Обогрев малых промышленных объектов</a><a href="equipment-heating.html">Электрообогрев оборудования</a><a href="plastic-tanks.html">Обогрев пластиковых ёмкостей</a><a href="large-tanks-heating.html">Обогрев больших ёмкостей</a><a href="pipeline-heating.html">Электрообогрев трубопроводов</a><a href="roof-heating.html">Обогрев кровли</a><a href="surface-heating.html">Обогрев открытых площадок</a><a href="entrance-heating.html">Обогрев входных групп</a><a href="wellhead-heating.html">Обогрев кустовой арматуры</a></div></div>
+                <div class="nav-dropdown"><a class="nav-trigger active-nav" href="household-solutions.html">Бытовые решения <span>⌄</span></a><div class="nav-dropdown-menu"><a href="pipe-freeze-protection.html">Защита труб от замерзания</a><a href="pipeline-temperature-maintenance.html">Стабильная температура трубопроводов</a><a href="underfloor-heating.html">Тёплый пол</a><a href="household-roof-gutter-heating.html">Обогрев кровли и водостоков</a><a href="household-entrance-heating.html">Обогрев ступеней, лестниц и входов</a><a href="household-open-area-heating.html">Обогрев открытых площадок</a><a href="household-reservoir-heating.html">Обогрев резервуаров</a><a href="household-soil-heating.html">Обогрев грунта</a></div></div>
+                <a href="index.html#product">Подобрать кабель</a><a href="index.html#solutions">Термостаты</a><a href="index.html#solutions">Комплектующие и аксессуары</a>
+              </div>
+            </div>
+            <div class="header-actions"><a class="button button-primary" href="#request">Запросить расчёт</a></div>
+          </nav>
+          <nav class="mobile-menu" id="mobile-menu" hidden>
+            <a href="index.html">Главная</a><a href="index.html#about">О компании</a><a href="index.html#brands">Бренды</a><a href="index.html#certificates">Сертификаты</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакты</a>
+            <strong>Промышленный электрообогрев</strong><a class="mobile-sub" href="industrial-solutions.html">Все решения</a><a class="mobile-sub" href="industrial-small.html">Малые промышленные объекты</a><a class="mobile-sub" href="equipment-heating.html">Оборудование</a><a class="mobile-sub" href="pipeline-heating.html">Трубопроводы</a>
+            <strong>Бытовые решения</strong><a class="mobile-sub" href="household-solutions.html">Все решения</a><a class="mobile-sub" href="pipe-freeze-protection.html">Защита труб</a><a class="mobile-sub" href="pipeline-temperature-maintenance.html">Температура трубопроводов</a><a class="mobile-sub" href="underfloor-heating.html">Тёплый пол</a><a class="mobile-sub" href="household-roof-gutter-heating.html">Кровля и водостоки</a><a class="mobile-sub" href="household-entrance-heating.html">Ступени и входы</a><a class="mobile-sub" href="household-open-area-heating.html">Открытые площадки</a><a class="mobile-sub" href="household-reservoir-heating.html">Резервуары</a><a class="mobile-sub" href="household-soil-heating.html">Грунт</a>
+          </nav>
+        </div>
+      </header>`;
+  }
+
+  const oldFooter = document.querySelector('body > footer');
+  if (oldFooter && !oldFooter.classList.contains('site-footer')) {
+    oldFooter.outerHTML = `
+      <footer class="site-footer" id="contacts">
+        <div class="footer-main shell">
+          <div class="footer-brand"><img src="assets/korda-mark.png" alt="КОРДА"><p>Системы электрообогрева и техническая изоляция.</p></div>
+          <div class="footer-column"><h2>Контакты</h2><a href="tel:+78123333249">8 (812) 333-32-49</a><a href="tel:+78005000519">8 (800) 500-05-19</a><a href="mailto:zayavka@korda.spb.ru">zayavka@korda.spb.ru</a></div>
+          <div class="footer-column"><h2>Адрес</h2><p>Санкт-Петербург,<br>ул. Розенштейна, д. 21, оф. 508</p></div>
+          <div class="footer-column"><h2>Бытовые решения</h2><a href="household-solutions.html">Все решения</a><a href="pipe-freeze-protection.html">Защита труб</a><a href="underfloor-heating.html">Тёплый пол</a><a href="household-reservoir-heating.html">Резервуары</a><a href="household-soil-heating.html">Грунт</a></div>
+        </div>
+        <div class="footer-bottom shell"><span>ООО «ТД КОРДА» · ОГРН 1147847084835</span><span>© 2026 КОРДА</span></div>
+      </footer>`;
+  }
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 

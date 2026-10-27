@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+@import url("styles.css?v=logo-20261005");
+@import url("industrial-pages.css?v=20261027-compact");
+
 body .hero,
 body .hero-custom {
   position: relative;
@@ -184,4 +188,145 @@ body .card-photo { height: auto !important; }
 
   body .editorial-photo img,
   body .photo-feature img { height: 280px !important; }
+}
+
+/* Legacy household mockups now follow the shared site shell and content rhythm. */
+.legacy-household {
+  font-family: "Montserrat", sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+.legacy-household .site-header,
+.legacy-household .site-footer { font-family: "Montserrat", sans-serif; }
+
+.legacy-household .hero,
+.legacy-household .hero-custom {
+  min-height: 480px;
+  max-height: 520px;
+}
+
+.legacy-household .hero .hero-grid,
+.legacy-household .hero-custom > .container { min-height: 480px; }
+
+.legacy-household .hero .art img,
+.legacy-household .hero .floor-art img,
+.legacy-household .hero .hero-visual img,
+.legacy-household .hero-custom .hero-figure img { min-height: 480px; }
+
+.legacy-household .hero h1,
+.legacy-household .hero-custom h1 {
+  max-width: 680px;
+  font-size: clamp(2.25rem, 2.8vw, 3.25rem);
+  line-height: 1.06;
+}
+
+.legacy-household .hero .lead,
+.legacy-household .hero-custom .lead {
+  max-width: 650px;
+  font-size: .98rem;
+}
+
+.household-detail figcaption,
+.household-detail .visual-caption,
+.household-detail .figure-caption { display: none !important; }
+
+.legacy-household .page-section,
+.legacy-household section:not(.hero):not(.hero-custom):not(.cta) { padding: 72px 0; }
+
+.legacy-household .section-title,
+.legacy-household .section-head h2,
+.legacy-household .head h2 { font-size: clamp(1.8rem, 2.5vw, 2.65rem); }
+
+.legacy-household .editorial-photo,
+.legacy-household .photo-feature {
+  width: 100% !important;
+  height: 100%;
+  min-height: 360px;
+  margin: 0 !important;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.legacy-household .editorial-photo img,
+.legacy-household .photo-feature img {
+  width: 100%;
+  height: 100% !important;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.legacy-household #applications > .container,
+.legacy-household #installation > .container,
+.legacy-household .soft > .wrap:has(> .photo-feature) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+  gap: 28px 34px;
+  align-items: stretch;
+}
+
+.legacy-household #applications > .container > .kicker,
+.legacy-household #applications > .container > .section-title,
+.legacy-household #applications > .container > .section-intro,
+.legacy-household #installation > .container > .kicker,
+.legacy-household #installation > .container > .section-title,
+.legacy-household #installation > .container > .section-intro,
+.legacy-household .soft > .wrap:has(> .photo-feature) > .section-head,
+.legacy-household .soft > .wrap:has(> .photo-feature) > .grid { grid-column: 1; }
+
+.legacy-household #applications > .container > .editorial-photo,
+.legacy-household #installation > .container > .editorial-photo,
+.legacy-household .soft > .wrap:has(> .photo-feature) > .photo-feature {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}
+
+.legacy-household #applications > .container > .cards3,
+.legacy-household #installation > .container > .numgrid { grid-column: 1; }
+
+.legacy-household #applications .cards3,
+.legacy-household #installation .numgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.legacy-household #installation > .container > .note,
+.legacy-household .soft > .wrap:has(> .photo-feature) > .note,
+.legacy-household .soft > .wrap:has(> .photo-feature) > .split { grid-column: 1 / -1; }
+
+.legacy-household .soft > .wrap:has(> .photo-feature) > .grid3 { grid-template-columns: 1fr; }
+
+@media (max-width: 900px) {
+  .legacy-household .hero,
+  .legacy-household .hero-custom,
+  .legacy-household .hero .hero-grid,
+  .legacy-household .hero-custom > .container { min-height: 540px; max-height: none; }
+
+  .legacy-household .hero .art img,
+  .legacy-household .hero .floor-art img,
+  .legacy-household .hero .hero-visual img,
+  .legacy-household .hero-custom .hero-figure img { min-height: 540px; }
+
+  .legacy-household #applications > .container,
+  .legacy-household #installation > .container,
+  .legacy-household .soft > .wrap:has(> .photo-feature) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .legacy-household #applications > .container > *,
+  .legacy-household #installation > .container > *,
+  .legacy-household .soft > .wrap:has(> .photo-feature) > * {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .legacy-household .editorial-photo,
+  .legacy-household .photo-feature,
+  .legacy-household .editorial-photo img,
+  .legacy-household .photo-feature img { min-height: 280px; max-height: 420px; }
+}
+
+@media (max-width: 560px) {
+  .legacy-household .hero h1,
+  .legacy-household .hero-custom h1 { font-size: clamp(2rem, 10vw, 2.7rem); }
+
+  .legacy-household #applications .cards3,
+  .legacy-household #installation .numgrid { grid-template-columns: 1fr; }
 }
