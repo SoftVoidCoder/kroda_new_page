@@ -1,6 +1,42 @@
 const menuButton = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 
+const householdItems = [
+  ['household-reservoir-heating.html', 'Обогрев резервуаров'],
+  ['household-soil-heating.html', 'Обогрев грунта']
+];
+
+document.querySelectorAll('a').forEach((link) => {
+  if (link.textContent.trim().startsWith('Промышленный электрообогрев')) {
+    link.href = 'industrial-solutions.html';
+  }
+});
+
+document.querySelectorAll('.nav-dropdown-menu').forEach((menu) => {
+  if (!menu.querySelector('a[href="pipe-freeze-protection.html"]')) return;
+  householdItems.forEach(([href, label]) => {
+    if (menu.querySelector(`a[href="${href}"]`)) return;
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = label;
+    menu.append(link);
+  });
+});
+
+document.querySelectorAll('.mobile-menu').forEach((menu) => {
+  const householdStart = [...menu.querySelectorAll('strong, a')].find((item) => item.textContent.trim() === 'Бытовые решения');
+  if (!householdStart) return;
+  const insertBefore = [...menu.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Подобрать кабель');
+  householdItems.forEach(([href, label]) => {
+    if (menu.querySelector(`a[href="${href}"]`)) return;
+    const link = document.createElement('a');
+    link.className = 'mobile-sub';
+    link.href = href;
+    link.textContent = label;
+    menu.insertBefore(link, insertBefore || null);
+  });
+});
+
 menuButton?.addEventListener('click', () => {
   const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
   menuButton.setAttribute('aria-expanded', String(!isOpen));
