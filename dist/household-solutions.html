@@ -22,10 +22,10 @@
     .household-card { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr); overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); }
     .household-list { display: grid; gap: 20px; }
     .household-card__copy { display: flex; min-height: 320px; flex-direction: column; align-items: flex-start; justify-content: center; padding: 48px; }
-    .household-card__copy h2 { margin: 10px 0 16px; font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    .household-card__copy h2 { margin: 0 0 16px; font-size: clamp(1.8rem, 3vw, 2.8rem); }
     .household-card__copy p { margin: 0 0 28px; color: var(--muted); line-height: 1.6; }
-    .household-card__image { min-height: 320px; }
-    .household-card__image img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+    .household-card__image { position: relative; min-height: 320px; overflow: hidden; }
+    .household-card__image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
     @media (max-width: 820px) { .household-hero { width: calc(100% - 24px); min-height: 480px; margin-top: 12px; } .household-hero::after { background: linear-gradient(0deg, rgba(6, 30, 20, .94), rgba(6, 30, 20, .2)); } .household-hero__content { display: flex; width: auto; min-height: 480px; padding: 36px 24px 48px; flex-direction: column; justify-content: flex-end; } .household-card { grid-template-columns: 1fr; } .household-card__copy { min-height: 0; padding: 34px 24px; } .household-card__image { min-height: 250px; order: -1; } }
   </style>
 </head>
@@ -57,35 +57,35 @@
         <div class="industrial-head"><h2>Решения для частного дома</h2><p>Выберите задачу — подготовим комплект оборудования и поможем с расчётом.</p></div>
         <div class="household-list">
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 01</p><h2>Защита труб от замерзания</h2><p>Обогрев водопроводных труб, вводов в дом, участков в неотапливаемых помещениях и на улице.</p><a class="button button-primary" href="pipe-freeze-protection.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Защита труб от замерзания</h2><p>Обогрев водопроводных труб, вводов в дом, участков в неотапливаемых помещениях и на улице.</p><a class="button button-primary" href="pipe-freeze-protection.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/pipe-freeze/exterior-installation.png" alt="Монтаж греющего кабеля на наружной трубе" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 02</p><h2>Стабильная температура трубопроводов</h2><p>Поддержание температуры воды и технологических жидкостей в трубах, на вводах и в неотапливаемых зонах.</p><a class="button button-primary" href="pipeline-temperature-maintenance.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Стабильная температура трубопроводов</h2><p>Поддержание температуры воды и технологических жидкостей в трубах, на вводах и в неотапливаемых зонах.</p><a class="button button-primary" href="pipeline-temperature-maintenance.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/pipe-freeze/cable-installation.png" alt="Монтаж системы электрообогрева трубопровода" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 03</p><h2>Тёплый пол</h2><p>Нагревательные маты, кабель и плёнка для комфортной температуры под плиткой, керамогранитом и ламинатом.</p><a class="button button-primary" href="underfloor-heating.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Тёплый пол</h2><p>Нагревательные маты, кабель и плёнка для комфортной температуры под плиткой, керамогранитом и ламинатом.</p><a class="button button-primary" href="underfloor-heating.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/underfloor-heating/comfort-home.webp" alt="Тёплый пол в интерьере частного дома" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 04</p><h2>Обогрев кровли и водостоков</h2><p>Защита карнизов, желобов, воронок и водосточных труб от наледи и ледяных пробок.</p><a class="button button-primary" href="household-roof-gutter-heating.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Обогрев кровли и водостоков</h2><p>Защита карнизов, желобов, воронок и водосточных труб от наледи и ледяных пробок.</p><a class="button button-primary" href="household-roof-gutter-heating.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/household/roof-hero.webp" alt="Обогрев кровли и водостоков частного дома" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 05</p><h2>Обогрев ступеней, лестниц и входов</h2><p>Система снеготаяния для крыльца, лестницы, пандуса и площадки перед входом.</p><a class="button button-primary" href="household-entrance-heating.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Обогрев ступеней, лестниц и входов</h2><p>Система снеготаяния для крыльца, лестницы, пандуса и площадки перед входом.</p><a class="button button-primary" href="household-entrance-heating.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/household/entrance-hero.webp" alt="Обогреваемые ступени у частного дома" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 06</p><h2>Обогрев открытых площадок</h2><p>Дорожки, парковки, въезды в гараж, террасы и другие участки без снега и наледи.</p><a class="button button-primary" href="household-open-area-heating.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Обогрев открытых площадок</h2><p>Дорожки, парковки, въезды в гараж, террасы и другие участки без снега и наледи.</p><a class="button button-primary" href="household-open-area-heating.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/household/surface-hero.webp" alt="Обогреваемая дорожка и площадка у дома" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 07</p><h2>Обогрев резервуаров</h2><p>Кабель, термостат и теплоизоляция для бытовых баков, бочек и еврокубов.</p><a class="button button-primary" href="household-reservoir-heating.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Обогрев резервуаров</h2><p>Кабель, термостат и теплоизоляция для бытовых баков, бочек и еврокубов.</p><a class="button button-primary" href="household-reservoir-heating.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/household/reservoir-home-hero.webp" alt="Утеплённый еврокуб у загородного дома" loading="lazy"></div>
           </article>
           <article class="household-card">
-            <div class="household-card__copy"><p class="eyebrow">Решение 08</p><h2>Обогрев грунта</h2><p>Греющий кабель, датчик и термостат для теплиц, парников и грядок.</p><a class="button button-primary" href="household-soil-heating.html">Открыть решение →</a></div>
+            <div class="household-card__copy"><h2>Обогрев грунта</h2><p>Греющий кабель, датчик и термостат для теплиц, парников и грядок.</p><a class="button button-primary" href="household-soil-heating.html">Открыть решение →</a></div>
             <div class="household-card__image"><img src="assets/household/soil-heating/greenhouse-cable.webp" alt="Греющий кабель в тепличной грядке" loading="lazy"></div>
           </article>
         </div>
