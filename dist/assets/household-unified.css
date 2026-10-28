@@ -408,3 +408,4 @@ body .card-photo { height: auto !important; }
   .legacy-household .reservoir-more-cards,
   .legacy-household .reservoir-more-steps { grid-template-columns: 1fr !important; }
 }
+.product-detail-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.product-detail-link{display:inline-flex;align-items:center;min-height:38px;padding:7px 12px;border:1px solid currentColor;border-radius:8px;color:inherit;font-size:.76rem;font-weight:700;text-decoration:none}.product-detail-link:hover,.product-detail-link:focus-visible{background:rgba(17,153,79,.12)}

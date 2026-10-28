@@ -118,6 +118,7 @@
 .dark-system .industrial-head p{color:rgba(255,255,255,.68)}
 .dark-system .industrial-product{background:#fff;color:var(--ink)}
 .dark-system .industrial-product p{color:var(--muted)}
+.product-detail-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.product-detail-link{display:inline-flex;align-items:center;min-height:38px;padding:7px 12px;border:1px solid currentColor;border-radius:8px;color:inherit;font-size:.76rem;font-weight:700;text-decoration:none}.product-detail-link:hover,.product-detail-link:focus-visible{background:rgba(17,153,79,.12)}
 .data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .data-grid article{min-height:220px;padding:28px;border:1px solid #cfe0d7;border-radius:8px;background:#fff}
 .data-grid b{display:block;margin-bottom:18px}
