@@ -5,8 +5,8 @@
 body .hero,
 body .hero-custom {
   position: relative;
-  width: min(1240px, calc(100% - 48px));
-  min-height: 470px;
+  width: var(--shell);
+  min-height: 500px;
   margin: 24px auto 0;
   padding: 0;
   overflow: hidden;
@@ -30,7 +30,7 @@ body .hero-custom > .container {
   position: relative;
   z-index: auto;
   display: flex;
-  min-height: 470px;
+  min-height: 500px;
   align-items: center;
   width: 100%;
   max-width: none;
@@ -72,7 +72,7 @@ body .hero-custom .hero-figure img {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 470px;
+  min-height: 500px;
   object-fit: cover;
   object-position: center;
 }
@@ -203,17 +203,17 @@ body .card-photo { height: auto !important; }
 .legacy-household .hero,
 .legacy-household .hero-custom {
   height: auto;
-  min-height: 480px;
+  min-height: 500px;
   max-height: none;
 }
 
 .legacy-household .hero .hero-grid,
-.legacy-household .hero-custom > .container { min-height: 480px; }
+.legacy-household .hero-custom > .container { min-height: 500px; }
 
 .legacy-household .hero .art img,
 .legacy-household .hero .floor-art img,
 .legacy-household .hero .hero-visual img,
-.legacy-household .hero-custom .hero-figure img { min-height: 480px; }
+.legacy-household .hero-custom .hero-figure img { min-height: 500px; }
 
 .legacy-household .hero h1,
 .legacy-household .hero-custom h1 {
@@ -361,4 +361,50 @@ body .card-photo { height: auto !important; }
 
   .legacy-household #applications .cards3,
   .legacy-household #installation .numgrid { grid-template-columns: 1fr; }
+}
+
+/* Keep reservoir copy beside its illustration and use the full width below it. */
+.legacy-household #applications > .container,
+.legacy-household #installation > .container { display: block; }
+
+.legacy-household .reservoir-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+  gap: 34px;
+  min-height: 360px;
+  margin: 28px 0 18px;
+}
+
+.legacy-household .reservoir-feature-cards,
+.legacy-household .reservoir-feature-steps { grid-template-columns: 1fr !important; }
+
+.legacy-household .reservoir-feature .editorial-photo {
+  position: relative;
+  min-height: 0;
+}
+
+.legacy-household .reservoir-feature .editorial-photo img {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+}
+
+.legacy-household .reservoir-more-cards,
+.legacy-household .reservoir-more-steps { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+
+.legacy-household .reservoir-more-steps { counter-reset: steps 2; }
+
+@media (max-width: 900px) {
+  .legacy-household .reservoir-feature { grid-template-columns: 1fr; }
+  .legacy-household .reservoir-feature .editorial-photo {
+    height: 320px;
+    grid-row: 1;
+  }
+  .legacy-household .reservoir-more-cards,
+  .legacy-household .reservoir-more-steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+@media (max-width: 560px) {
+  .legacy-household .reservoir-more-cards,
+  .legacy-household .reservoir-more-steps { grid-template-columns: 1fr !important; }
 }
