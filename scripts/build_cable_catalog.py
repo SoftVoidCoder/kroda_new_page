@@ -58,6 +58,7 @@ def price_text(value):
 
 def old_price_rows():
     book = load_workbook(PRICES, read_only=True, data_only=True)
+    doc = Document(FHC_DOC)
     families = {key: [] for key in ["gws", "gws-cr", "isr-ct", "rgs-cr", "sms-cr", "tms-cr", "tms-ct", "vms-cx", "vms-ct", "hpi13-2ct", "lavita-roll", "lavita-mat"]}
     for row in book["Самрег_250207"].iter_rows(min_row=4, values_only=True):
         model, article, price = row[1], row[9], row[10]
@@ -87,7 +88,9 @@ def old_price_rows():
     ]:
         families[slug] = [row for row in families[source] if row[0] == model]
         assert len(families[slug]) == 1, (slug, model)
-    return families, Document(FHC_DOC)
+    families["lavita-fhc-30"] = [(cells[1], cells[3], cells[2] + " м · " + cells[4] + " Вт", Decimal(cells[5].replace(" ", "").replace(",", ".")), "комплект") for row in doc.tables[1].rows[1:] if (cells := [cell.text.strip() for cell in row.cells]) and cells[5]]
+    assert len(families["lavita-fhc-30"]) == 11
+    return families, doc
 
 
 def fhc_content(doc):
@@ -100,10 +103,10 @@ def fhc_content(doc):
     parts += ["<div class='row'><div class='col-md-6'><h3>Конструкция кабеля Lavita FHC-30</h3>", f"<img src='assets/cable-catalog/{image_name}' alt='Конструкция кабеля Lavita FHC-30'></div><div class='col-md-6'><h3>Технические характеристики</h3><table>"]
     for row in doc.tables[0].rows:
         parts.append("<tr>" + "".join(f"<td>{escape(c.text.strip())}</td>" for c in row.cells) + "</tr>")
-    parts += ["</table></div></div>", "<h3>Модели</h3><table><thead><tr><th>Модель</th><th>Длина, м</th><th>Артикул</th><th>Мощность, Вт</th></tr></thead><tbody>"]
+    parts += ["</table></div></div>", "<h3>Модели</h3><table><thead><tr><th>Модель</th><th>Длина, м</th><th>Артикул</th><th>Мощность, Вт</th><th>Цена, ₽</th></tr></thead><tbody>"]
     for row in doc.tables[1].rows[1:]:
         c = [x.text.strip() for x in row.cells]
-        parts.append("<tr>" + "".join(f"<td>{escape(c[i])}</td>" for i in (1, 2, 3, 4)) + "</tr>")
+        parts.append("<tr>" + "".join(f"<td>{escape(c[i])}</td>" for i in (1, 2, 3, 4, 5)) + "</tr>")
     parts += ["</tbody></table>", "<h3>Области применения</h3>", "<p>Подогрев ступеней, лестниц и входов в здания; обогрев открытых площадок, кровли и водостоков. Укладка в бетонную стяжку для обычных сред.</p>"]
     return "".join(parts)
 
@@ -162,7 +165,7 @@ def main():
     header = header.replace('class="active-nav" href="household-solutions.html"', 'href="household-solutions.html"')
     header = header.replace('href="heating-cable.html">Подобрать кабель', 'class="active-nav" href="heating-cable.html">Подобрать кабель')
     footer = footer.replace('href="index.html#product"', 'href="heating-cable.html"')
-    frame = """<!doctype html><html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><meta name='robots' content='index,follow'><title>{title} | КОРДА</title><meta name='description' content='{description}'><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap' rel='stylesheet'><link rel='stylesheet' href='assets/styles.css?v=20261027-buttons'><link rel='stylesheet' href='assets/industrial-pages.css?v=20261027-buttons'><link rel='stylesheet' href='assets/heating-cable.css'></head><body class='inner-page'><a class='skip-link' href='#main'>К основному содержанию</a>{header}<main id='main' class='inner-main'>{body}</main>{footer}<script src='assets/app.js' defer></script>{script}</body></html>"""
+    frame = """<!doctype html><html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><meta name='robots' content='index,follow'><title>{title} | КОРДА</title><meta name='description' content='{description}'><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap' rel='stylesheet'><link rel='stylesheet' href='assets/styles.css?v=20261027-buttons'><link rel='stylesheet' href='assets/industrial-pages.css?v=20261027-buttons'><link rel='stylesheet' href='assets/heating-cable.css?v=20261028-cards'></head><body class='inner-page'><a class='skip-link' href='#main'>К основному содержанию</a>{header}<main id='main' class='inner-main'>{body}</main>{footer}<script src='assets/app.js' defer></script>{script}</body></html>"""
     items = []
     for li in source.xpath("//ul[@id='cabeli']/li"):
         heading = li.xpath(".//div[contains(@class,'hidden-xs')]//h1")
@@ -183,7 +186,7 @@ def main():
         body = sanitized_content(old_detail, slug, doc)
         rows = prices.get(slug, [])
         shown_price = "от " + price_text(min(x[3] for x in rows)) + " / " + rows[0][4] if rows else "Цена по запросу"
-        price_note = "Цены из прайса от 27.10.2026. Для остальных моделей стоимость по запросу." if rows else "Позиции нет в прайсе от 27.10.2026; цену уточняйте перед заказом."
+        price_note = "Цены из переданного описания FHC-30. Перед заказом уточняйте актуальность." if slug == "lavita-fhc-30" else ("Цены из прайса от 27.10.2026. Для остальных моделей стоимость по запросу." if rows else "Позиции нет в прайсе от 27.10.2026; цену уточняйте перед заказом.")
         detail_main = f"<div class='cable-crumb shell'><a href='heating-cable.html'>Подобрать кабель</a> / {escape(name)}</div><section class='cable-detail-hero shell'><div><p class='eyebrow'>Греющий кабель · {escape(manufacturer.replace('_',' '))}</p><h1>{escape(name)}</h1><p>{escape(description)}</p><strong>{shown_price}</strong><div><a class='button button-primary' href='mailto:zayavka@korda.spb.ru?subject={quote('Запрос по кабелю '+name)}'>Запросить подбор →</a></div></div><img src='{image}' alt='{escape(name)}'></section><div class='cable-detail shell'><section class='cable-specs'><h2>Модели и цены</h2>{table_html(rows)}<p class='cable-source-note'>{price_note}</p></section><section class='cable-description'>{body}<p class='cable-source-note'>Документы перенесены из прежнего каталога. Перед использованием проверяйте срок их действия.</p></section></div>"
         (ROOT / f"cable-{slug}.html").write_text(re.sub(r"[ \t]+(?=\n)", "", frame.format(title=escape(name), description=escape(description[:150], quote=True), header=header, body=detail_main, footer=footer, script="")), encoding="utf-8")
         items.append(dict(name=name, slug=slug, category=category, filters=filters, manufacturer=manufacturer, description=description, image=image, price=shown_price))
@@ -194,7 +197,7 @@ def main():
         options = [(key, label) for key, label in labels.items() if key.startswith(prefix)] if prefix != "maker" else [(x, x.replace('_', ' ')) for x in ["Lavita", "Ace_Floor", "ТЕРМ"]]
         filters_html += f"<fieldset><legend>{title}</legend>" + "".join(f"<label><input type='checkbox' name='filter' data-group='{prefix}' value='{escape(key)}'><span>{escape(label)}</span></label>" for key, label in options) + "</fieldset>"
     cards = "".join(f"<article class='cable-card' data-category='{x['category']}' data-filters='{' '.join(x['filters'] + ([x['manufacturer']] if x['manufacturer'] else []))}'><a class='cable-card__image' href='cable-{x['slug']}.html'><img src='{x['image']}' alt='{escape(x['name'])}' loading='lazy'></a><div><span class='cable-card__maker'>{escape(x['manufacturer'].replace('_',' '))}</span><h2>{escape(x['name'])}</h2><p>{escape(x['description'])}</p><strong>{x['price']}</strong><a class='cable-card__link' href='cable-{x['slug']}.html'>Подробнее →</a></div></article>" for x in items)
-    catalog_body = f"<section class='cable-hero shell'><p class='eyebrow'>Каталог КОРДА</p><h1>Подобрать греющий кабель</h1><p>Выберите тип кабеля и условия применения. В карточках — фотографии, характеристики и документы. Цены указаны по прайсу от 27.10.2026 для позиций, которые в нём есть.</p></section><div class='cable-layout shell'><aside class='cable-filters'><h2>Фильтры</h2><button type='button' id='filter-toggle' aria-expanded='false' aria-controls='cable-filter-options'>Показать фильтры</button><button type='button' id='clear-filters'>Сбросить</button><div id='cable-filter-options'>{filters_html}</div></aside><section class='cable-results'><div class='cable-tabs' role='tablist' aria-label='Тип кабеля'><button type='button' class='active' data-category='all' aria-selected='true'>Все</button><button type='button' data-category='ct1' aria-selected='false'>Саморегулирующийся кабель</button><button type='button' data-category='ct2' aria-selected='false'>Резистивный кабель</button><button type='button' data-category='ct3' aria-selected='false'>Инфракрасная плёнка</button></div><p id='cable-count' aria-live='polite'></p><div class='cable-grid'>{cards}</div><p class='cable-empty' hidden>По выбранным фильтрам товаров нет.</p></section></div>"
+    catalog_body = f"<section class='cable-hero shell'><p class='eyebrow'>Каталог КОРДА</p><h1>Подобрать греющий кабель</h1><p>Выберите тип кабеля и условия применения.</p></section><div class='cable-layout shell'><aside class='cable-filters'><h2>Фильтры</h2><button type='button' id='filter-toggle' aria-expanded='false' aria-controls='cable-filter-options'>Показать фильтры</button><button type='button' id='clear-filters'>Сбросить</button><div id='cable-filter-options'>{filters_html}</div></aside><section class='cable-results'><div class='cable-tabs' role='tablist' aria-label='Тип кабеля'><button type='button' class='active' data-category='all' aria-selected='true'>Все</button><button type='button' data-category='ct1' aria-selected='false'>Саморегулирующийся кабель</button><button type='button' data-category='ct2' aria-selected='false'>Резистивный кабель</button><button type='button' data-category='ct3' aria-selected='false'>Инфракрасная плёнка</button></div><p id='cable-count' aria-live='polite'></p><div class='cable-grid'>{cards}</div><p class='cable-empty' hidden>По выбранным фильтрам товаров нет.</p></section></div>"
     (ROOT / "heating-cable.html").write_text(frame.format(title="Греющий кабель", description="Каталог греющего кабеля КОРДА: саморегулирующийся, резистивный и инфракрасная плёнка.", header=header, body=catalog_body, footer=footer, script="<script src='assets/heating-cable.js' defer></script>"), encoding="utf-8")
     assert len(items) == len(source.xpath("//ul[@id='cabeli']/li")) == 20
     assert len(list(ROOT.glob("cable-*.html"))) >= 20
