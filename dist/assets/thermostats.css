@@ -28,3 +28,8 @@
 @media(max-width:760px){.thermo-section .cards{grid-template-columns:1fr}.thermo-section{padding-top:32px}.thermostats-page .cable-description .row,.thermostats-page .cable-description .row:has(>.col-md-3){grid-template-columns:1fr}.thermo-section .selection,.thermo-section .card{padding:20px;grid-template-columns:minmax(0,1fr) 80px;gap:12px}.thermo-section h2{font-size:19px}.thermostats-page .cable-card h3{font-size:1.1rem}}
 @media(max-width:380px){.thermo-section .selection,.thermo-section .card{grid-template-columns:1fr}.thermo-section .card img,.thermo-section .selection img{grid-column:1;grid-row:3;width:90px;height:90px}}
 .thermostats-page .cable-description .row>div:only-child{grid-column:1/-1}
+/* Keep original product photos intact, on one white surface, without upscaling. */
+.thermostats-page .cable-card__image{height:220px;padding:20px;background:#fff}
+.thermostats-page .cable-card__image img{width:auto;height:auto;max-width:100%;max-height:180px;object-fit:contain}
+.thermostats-page .cable-detail-hero>img{width:auto;height:auto;max-width:100%;max-height:280px;background:#fff;border-radius:8px;padding:12px}
+.thermostats-page .cable-description .panel img{width:auto;height:auto;max-height:180px;object-fit:contain}

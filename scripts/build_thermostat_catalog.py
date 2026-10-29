@@ -34,7 +34,7 @@ def asset(url, base):
 
 def page_name(url): return 'thermostat-' + Path(urlparse(url).path).stem.lower() + '.html'
 
-def content(tree, url, urls):
+def content(tree, url, urls, original_images):
     roots = tree.xpath('//div[contains(concat(" ",normalize-space(@class)," ")," tpl-block-full ")]')
     assert len(roots) == 1, url
     root = deepcopy(roots[0])
@@ -59,7 +59,8 @@ def content(tree, url, urls):
         for attr in list(el.attrib):
             if attr not in {'href','src','alt','class','colspan','rowspan','id'}: del el.attrib[attr]
         if el.tag == 'img':
-            el.set('src',asset(el.get('src'),url)); el.set('loading','lazy')
+            src = urljoin(url, el.get('src'))
+            el.set('src', asset(original_images.get(src, src), url)); el.set('loading','lazy')
             if not el.get('alt'): el.set('alt','Техническая иллюстрация')
         if el.tag == 'a' and el.get('href'):
             href = el.get('href').strip()
@@ -93,6 +94,7 @@ def main():
     assert len(blocks)==39
     urls=[urljoin(SOURCE,b.xpath('.//a')[0].get('href')) for b in blocks]
     with ThreadPoolExecutor(max_workers=6) as pool: details=list(pool.map(fetch,urls))
+    original_images = {urljoin(url, block.xpath('.//img')[0].get('src')): urljoin(url, tree.xpath('//div[contains(@class,"tpl-block-full")]//img')[0].get('src')) for block, url, tree in zip(blocks, urls, details)}
     labels={a.get('data-filter'):a.text_content().strip().replace('Tеплый','Тёплый') for a in source.xpath('//a[@data-filter]') if a.get('data-filter')!='all'}
     makers={'607','599','598','597','319','315'}
     approved=prices()
@@ -105,7 +107,7 @@ def main():
     head=frame_source[:frame_source.index('<body')]
     head=re.sub(r'<title>.*?</title>','<title>{title} | КОРДА</title>',head)
     head=re.sub(r"<meta name=['\"]description['\"] content=['\"][^'\"]*['\"]>",'<meta name="description" content="{description}">',head)
-    head=head.replace('</head>',"<link rel='stylesheet' href='assets/thermostats.css?v=20261029'></head>")
+    head=head.replace('</head>',"<link rel='stylesheet' href='assets/thermostats.css?v=20261029-originals'></head>")
     def render(title,desc,body,js=''):
         return head.replace('{title}',e(title)).replace('{description}',e(desc,quote=True))+"<body class='inner-page thermostats-page'><a class='skip-link' href='#main'>К основному содержанию</a>"+header+"<main id='main' class='inner-main'>"+body+'</main>'+footer+"<script src='assets/app.js' defer></script>"+js+'</body></html>'
     items=[]
@@ -114,9 +116,9 @@ def main():
         slug=Path(urlparse(url).path).stem.lower()
         tags=[c for c in block.get('class').split() if c in labels]
         maker=next(labels[c] for c in tags if c in makers)
-        image=asset(block.xpath('.//img')[0].get('src'),url)
+        image=asset(original_images[urljoin(url, block.xpath('.//img')[0].get('src'))],url)
         shown=price_text(approved[slug]) if slug in approved else 'Цена по запросу'
-        body=content(tree,url,set(urls))
+        body=content(tree,url,set(urls),original_images)
         full_image=asset(tree.xpath('//div[contains(@class,"tpl-block-full")]//img')[0].get('src'),url)
         detail=f"<div class='cable-crumb shell'><a href='thermostats.html'>Термостаты</a> / {e(name)}</div><section class='cable-detail-hero shell'><div><p class='eyebrow'>{e(maker)}</p><h1>{e(name)}</h1><strong>{shown}</strong><a class='button button-primary' href='mailto:zayavka@korda.spb.ru?subject={quote('Запрос: '+name)}'>Запросить подбор →</a></div><img src='{full_image}' alt='{e(name)}'></section><div class='cable-detail shell'><section class='cable-description'>{body}</section></div>"
         (ROOT/page_name(url)).write_text(render(name,'Характеристики, описание и документация: '+name,detail))
