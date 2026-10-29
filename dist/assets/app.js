@@ -63,6 +63,60 @@ if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
   }
 }
 
+document.querySelectorAll('.site-header a').forEach((link) => {
+  if (link.textContent.trim() === 'Подобрать кабель') link.href = 'heating-cable.html';
+});
+
+document.querySelectorAll('.site-header .header-actions').forEach((actions) => {
+  if (actions.querySelector('.button-outline[data-lead-open]') && actions.querySelector('.button-primary[data-lead-open]')) return;
+  actions.innerHTML = '<button class="button button-outline" type="button" data-lead-open="Опросный лист">Запросить опросный лист</button><button class="button button-primary" type="button" data-lead-open="Расчёт проекта">Запросить расчёт</button>';
+});
+
+document.querySelectorAll('.site-header .mobile-menu').forEach((menu) => {
+  if (!menu.querySelector('a[href="heating-cable.html"]')) {
+    const link = document.createElement('a');
+    link.href = 'heating-cable.html';
+    link.textContent = 'Подобрать кабель';
+    menu.append(link);
+  }
+  let primary = menu.querySelector('.button-primary[data-lead-open]');
+  if (!primary) {
+    primary = document.createElement('button');
+    primary.className = 'button button-primary';
+    primary.type = 'button';
+    primary.dataset.leadOpen = 'Расчёт проекта';
+    primary.textContent = 'Запросить расчёт';
+    menu.append(primary);
+  }
+  if (!menu.querySelector('.button-outline[data-lead-open]')) {
+    const outline = document.createElement('button');
+    outline.className = 'button button-outline';
+    outline.type = 'button';
+    outline.dataset.leadOpen = 'Опросный лист';
+    outline.textContent = 'Запросить опросный лист';
+    primary.before(outline);
+  }
+});
+
+if (!document.querySelector('#lead-dialog')) {
+  document.body.insertAdjacentHTML('beforeend', `
+    <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-title">
+      <button class="dialog-close" type="button" data-lead-close aria-label="Закрыть форму">×</button>
+      <p class="eyebrow green">Свяжемся в рабочее время</p>
+      <h2 id="lead-title">Оставить заявку</h2>
+      <p class="dialog-copy">Оставьте телефон — инженер уточнит задачу и предложит подходящее решение.</p>
+      <form class="lead-form" id="lead-form">
+        <input type="hidden" name="requestType" id="request-type" value="Обсуждение проекта">
+        <label>Ваше имя<input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required></label>
+        <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 999 000-00-00" required></label>
+        <label>Комментарий<textarea name="message" rows="3" placeholder="Коротко опишите задачу"></textarea></label>
+        <label class="consent"><input name="consent" type="checkbox" required><span>Согласен на обработку персональных данных</span></label>
+        <button class="button button-primary button-wide" type="submit">Отправить заявку</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </dialog>`);
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 
@@ -109,10 +163,11 @@ menuButton?.addEventListener('click', () => {
   menuButton.setAttribute('aria-label', isOpen ? 'Открыть меню' : 'Закрыть меню');
 });
 
-mobileMenu?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
+mobileMenu?.querySelectorAll('a, button[data-lead-open]').forEach((item) => {
+  item.addEventListener('click', () => {
     mobileMenu.hidden = true;
     menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Открыть меню');
   });
 });
 
