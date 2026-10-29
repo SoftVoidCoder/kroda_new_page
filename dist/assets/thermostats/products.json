@@ -1,0 +1,479 @@
+[
+  {
+    "name": "Lavita RTC 70.26 (встраиваемый) Терморегулятор",
+    "url": "thermostat-rtc70-26.html",
+    "image": "assets/thermostats/9e0b3c771235.png",
+    "tags": [
+      "326",
+      "330",
+      "315"
+    ],
+    "maker": "Lavita",
+    "price": "700 ₽"
+  },
+  {
+    "name": "Lavita E 51.716 (встраиваемый) Терморегулятор",
+    "url": "thermostat-e51-716.html",
+    "image": "assets/thermostats/1105ac690528.png",
+    "tags": [
+      "326",
+      "315"
+    ],
+    "maker": "Lavita",
+    "price": "1 794 ₽"
+  },
+  {
+    "name": "Lavita E91.716 (встраиваемый) Терморегулятор",
+    "url": "thermostat-e_91_716.html",
+    "image": "assets/thermostats/aec35617e46b.png",
+    "tags": [
+      "326",
+      "315"
+    ],
+    "maker": "Lavita",
+    "price": "2 349 ₽"
+  },
+  {
+    "name": "UTH-120 (накладной) Терморегулятор",
+    "url": "thermostat-uth120.html",
+    "image": "assets/thermostats/783c96744cde.png",
+    "tags": [
+      "326",
+      "330",
+      "597"
+    ],
+    "maker": "Uriel Electronics",
+    "price": "2 785 ₽"
+  },
+  {
+    "name": "ETF-144/99A Сенсор (датчик температуры)",
+    "url": "thermostat-etf144-99a.html",
+    "image": "assets/thermostats/62aa1f163c48.jpg",
+    "tags": [
+      "326",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETI-1551 Термостат",
+    "url": "thermostat-eti1551.html",
+    "image": "assets/thermostats/e0dbebf59e64.jpg",
+    "tags": [
+      "325",
+      "490",
+      "329",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETF-622 Сенсор (датчик температуры)",
+    "url": "thermostat-etf-633-622.html",
+    "image": "assets/thermostats/38e229a4b72c.jpg",
+    "tags": [
+      "325",
+      "490",
+      "329",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETR/F-1447А Термостат (в комплекте с датчиком температуры)",
+    "url": "thermostat-etr-f-1447a.html",
+    "image": "assets/thermostats/6e4f6c1179e0.jpg",
+    "tags": [
+      "327",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETR 2-1550 Термостат",
+    "url": "thermostat-etr2-1550.html",
+    "image": "assets/thermostats/3512cd954dfb.jpg",
+    "tags": [
+      "327",
+      "328",
+      "397",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETO 2-4550 Метеостанция (термостат)",
+    "url": "thermostat-eto2-4550.html",
+    "image": "assets/thermostats/512395964f35.jpg",
+    "tags": [
+      "327",
+      "328",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETOR-55 Сенсор (датчик влажности)",
+    "url": "thermostat-etor-55.html",
+    "image": "assets/thermostats/8278d278f178.jpg",
+    "tags": [
+      "327",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETF 744/99A Сенсор (датчик температуры)",
+    "url": "thermostat-etf744-99a.html",
+    "image": "assets/thermostats/d311ffc283bc.jpg",
+    "tags": [
+      "327",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETOG-55 Сенсор (датчик влажности и температуры)",
+    "url": "thermostat-etog55.html",
+    "image": "assets/thermostats/a7d092976278.jpg",
+    "tags": [
+      "328",
+      "397",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "ETV-1991 Термостат (в комплекте с датчиком температуры)",
+    "url": "thermostat-etv1991.html",
+    "image": "assets/thermostats/5f9bcf94ac96.jpg",
+    "tags": [
+      "326",
+      "319"
+    ],
+    "maker": "OJ Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "Kit Термостат Lavita",
+    "url": "thermostat-termostat-kit-lavita.html",
+    "image": "assets/thermostats/d8fe38e90975.jpg",
+    "tags": [
+      "325",
+      "329",
+      "315"
+    ],
+    "maker": "Lavita",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "TL14-250 Терморегулятор",
+    "url": "thermostat-tl-11-250.html",
+    "image": "assets/thermostats/a911594ac744.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "599"
+    ],
+    "maker": "ТЕРМ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "TST-81 Датчик температуры",
+    "url": "thermostat-tst-81.html",
+    "image": "assets/thermostats/5321e2c8df25.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "599"
+    ],
+    "maker": "ТЕРМ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "TST85 Датчик температуры",
+    "url": "thermostat-tst-84.html",
+    "image": "assets/thermostats/bdf4ac7447da.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "599"
+    ],
+    "maker": "ТЕРМ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "TL-11-400 Терморегулятор",
+    "url": "thermostat-tl-11-400.html",
+    "image": "assets/thermostats/3a70796bd2a4.jpg",
+    "tags": [
+      "329",
+      "490",
+      "599"
+    ],
+    "maker": "ТЕРМ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АРТ-19 Терморегулятор",
+    "url": "thermostat-art-19.html",
+    "image": "assets/thermostats/fc616e55d9f3.jpg",
+    "tags": [
+      "327",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АРТ-19H Терморегулятор",
+    "url": "thermostat-art-19h.html",
+    "image": "assets/thermostats/365cf71e1f97.jpg",
+    "tags": [
+      "327",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АРТ-18-16НА Терморегулятор",
+    "url": "thermostat-art-18-16na.html",
+    "image": "assets/thermostats/ef88f0778031.jpg",
+    "tags": [
+      "325",
+      "490",
+      "329",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АРТ-18-16Н Терморегулятор",
+    "url": "thermostat-art-18-16-n.html",
+    "image": "assets/thermostats/bf3fada1ca85.png",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "326",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АРТ-22 Терморегулятор",
+    "url": "thermostat-art-22.html",
+    "image": "assets/thermostats/002e7f355970.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "МПРТ-11-18 Терморегулятор",
+    "url": "thermostat-mprt-11-18.html",
+    "image": "assets/thermostats/f61e02f43425.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "326",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "МПРТ-11 Терморегулятор",
+    "url": "thermostat-mprt-11.html",
+    "image": "assets/thermostats/12fc85f6656a.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "МПРТ-22 Терморегулятор",
+    "url": "thermostat-mprt-22.html",
+    "image": "assets/thermostats/cf97933e9e82.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АРТ-18КБ Терморегулятор",
+    "url": "thermostat-art-18kb.html",
+    "image": "assets/thermostats/6a560ec3554d.jpg",
+    "tags": [
+      "325",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "KTY-81-110 Датчик температуры",
+    "url": "thermostat-kty-81-110.html",
+    "image": "assets/thermostats/d031731883e3.jpg",
+    "tags": [
+      "325",
+      "490",
+      "327",
+      "329",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "KTY-81-110 Высокотемпературный датчик",
+    "url": "thermostat-kty-81-110_high_temp.html",
+    "image": "assets/thermostats/7953bbeddf7e.jpg",
+    "tags": [
+      "490",
+      "327",
+      "329",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "KTY-81-110 в нержавеющей гильзе Датчик температуры",
+    "url": "thermostat-kty-81-110_stainless.html",
+    "image": "assets/thermostats/dc7bc1745517.jpg",
+    "tags": [
+      "325",
+      "490",
+      "327",
+      "329",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "KTY-81-110 в нержавеющем корпусе со штуцером Датчик температуры",
+    "url": "thermostat-kty-81-110_fitting.html",
+    "image": "assets/thermostats/2dec8a58d370.jpg",
+    "tags": [
+      "325",
+      "490",
+      "327",
+      "329",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "UTH-150 (встраиваемый) Терморегулятор",
+    "url": "thermostat-uth150.html",
+    "image": "assets/thermostats/278b435bfe77.png",
+    "tags": [
+      "326",
+      "597"
+    ],
+    "maker": "Uriel Electronics",
+    "price": "2 410 ₽"
+  },
+  {
+    "name": "UTH-150 (накладной) Терморегулятор",
+    "url": "thermostat-uth150-2.html",
+    "image": "assets/thermostats/e01daa767868.png",
+    "tags": [
+      "326",
+      "597"
+    ],
+    "maker": "Uriel Electronics",
+    "price": "2 410 ₽"
+  },
+  {
+    "name": "NTC Датчик температуры",
+    "url": "thermostat-ntc.html",
+    "image": "assets/thermostats/9c9c53b2ee33.png",
+    "tags": [
+      "326",
+      "597"
+    ],
+    "maker": "Uriel Electronics",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "MR7 Датчик температуры",
+    "url": "thermostat-mr7.html",
+    "image": "assets/thermostats/dac80a9877c6.png",
+    "tags": [
+      "326",
+      "315"
+    ],
+    "maker": "Lavita",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "АЛТИМЕР-КОНТРОЛЬ-ЕXM во взрывозащищенном исполнении Термостат",
+    "url": "thermostat-altimer-kontrol-exm.html",
+    "image": "assets/thermostats/89752e21fc03.png",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "607"
+    ],
+    "maker": "АЛТИМЕР",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "МПТ-6У Реле времени",
+    "url": "thermostat-mpt-6u.html",
+    "image": "assets/thermostats/9b5f2d9b003b.jpg",
+    "tags": [
+      "325",
+      "329",
+      "490",
+      "598"
+    ],
+    "maker": "ПЭЛЗ",
+    "price": "Цена по запросу"
+  },
+  {
+    "name": "UTH-170 (накладной) Терморегулятор",
+    "url": "thermostat-uth-170.html",
+    "image": "assets/thermostats/96304056bd41.png",
+    "tags": [
+      "326",
+      "330",
+      "597"
+    ],
+    "maker": "Uriel Electronics",
+    "price": "2 692 ₽"
+  }
+]
