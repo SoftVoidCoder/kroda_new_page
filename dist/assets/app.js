@@ -225,6 +225,10 @@ leadDialog?.addEventListener('click', (event) => {
 
 leadForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
+  if (location.hostname === 'softvoidcoder.github.io') {
+    formStatus.textContent = 'Это страница для согласования. Для заявки напишите на zayavka@korda.spb.ru или позвоните 8 (800) 500-05-19.';
+    return;
+  }
   const submitButton = leadForm.querySelector('button[type="submit"]');
   const payload = Object.fromEntries(new FormData(leadForm));
   submitButton.disabled = true;
