@@ -1,14 +1,14 @@
 .thermo-section{padding:52px 0 12px;color:var(--ink)}
-.thermo-section .container{max-width:1120px;margin:0 auto}
-.thermo-section h1{max-width:900px;font-size:clamp(28px,3.4vw,46px);line-height:1.15;letter-spacing:-1px;margin:0 0 22px}
+.thermo-section .container{width:100%;margin:0}
+.thermo-section h1{max-width:none;font-size:clamp(28px,3.4vw,46px);line-height:1.15;letter-spacing:-1px;margin:0 0 22px}
 .thermo-section .eyebrow{color:var(--green-700)}
-.thermo-section .intro{max-width:900px;color:var(--muted);font-size:16px;line-height:1.8;margin:0 0 32px}
+.thermo-section .intro{max-width:none;color:var(--muted);font-size:16px;line-height:1.8;margin:0 0 32px}
 .thermo-section .selection,.thermo-section .card{display:grid;grid-template-columns:minmax(0,1fr) 100px;gap:12px 20px;align-content:start;padding:26px;border-radius:8px}
 .thermo-section .selection{background:var(--green-900);color:#fff;margin-bottom:18px;grid-template-columns:minmax(0,1fr) 100px}
 .thermo-section h2{font-size:21px;line-height:1.35;margin:0}
 .thermo-section p{font-size:15px;line-height:1.75;margin:0;color:var(--muted)}
 .thermo-section .selection p{color:#e0ece5}
-.thermo-section .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.thermo-section .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .thermo-section .card{border:1px solid var(--line);background:#f4f8f5}
 .thermo-section .card-number{display:none}
 .thermo-section .card h2,.thermo-section .selection h2{grid-column:1;grid-row:1}
@@ -33,3 +33,9 @@
 .thermostats-page .cable-card__image img{width:auto;height:auto;max-width:100%;max-height:180px;object-fit:contain}
 .thermostats-page .cable-detail-hero>img{width:auto;height:auto;max-width:100%;max-height:280px;background:#fff;border-radius:8px;padding:12px}
 .thermostats-page .cable-description .panel img{width:auto;height:auto;max-height:180px;object-fit:contain}
+
+.thermo-section .card{grid-template-columns:minmax(0,1fr) 64px;padding:20px;gap:16px 12px}
+.thermo-section .card h2{font-size:19px;align-self:center}
+.thermo-section .card p{grid-column:1/-1;grid-row:2;font-size:14px;line-height:1.65}
+.thermo-section .card img{grid-column:2;grid-row:1;width:64px;height:64px;padding:5px}
+@media(min-width:761px) and (max-width:1199px){.thermo-section .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
