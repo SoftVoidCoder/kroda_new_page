@@ -164,7 +164,7 @@
     "price": "Цена по запросу"
   },
   {
-    "name": "Kit Термостат Lavita",
+    "name": "Термостат KIT WP — влагозащищённый",
     "url": "thermostat-termostat-kit-lavita.html",
     "image": "assets/thermostats/b83148550c6c.jpg",
     "tags": [
@@ -173,7 +173,22 @@
       "315"
     ],
     "maker": "Lavita",
-    "price": "Цена по запросу"
+    "price": "3 700 ₽",
+    "summary": "Влагозащищённый. Включение ниже +5 °C, выключение выше +15 °C."
+  },
+  {
+    "name": "Термостат KIT-I — без влагозащиты",
+    "url": "thermostat-kit-i.html",
+    "image": "assets/thermostats/kit-i-original.jpeg",
+    "tags": [
+      "315",
+      "325",
+      "327",
+      "397"
+    ],
+    "maker": "Lavita",
+    "price": "1 700 ₽",
+    "summary": "Без влагозащиты. Включение ниже +5 °C, выключение при достижении +15 °C."
   },
   {
     "name": "TL14-250 Терморегулятор",
