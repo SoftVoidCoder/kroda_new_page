@@ -35,18 +35,18 @@ class NavigationTest(unittest.TestCase):
                 ["О компании", "Каталог решений", "Контакты"],
                 path.name,
             )
-            expected = (
-                ["#about", "catalog-solutions.html", "#contacts"]
-                if path.name == "index.html"
-                else ["index.html#about", "catalog-solutions.html", "index.html#contacts"]
-            )
+            expected = [
+                "about.html",
+                "catalog-solutions.html",
+                "#contacts" if path.name in {"index.html", "about.html"} else "index.html#contacts",
+            ]
             self.assertEqual([link.get("href") for link in links], expected, path.name)
 
     def test_navigation_script_is_cache_busted(self):
         for path in ROOT.glob("*.html"):
             tree = html.fromstring(path.read_text())
             self.assertIn(
-                "assets/app.js?v=20261110-nav-1",
+                "assets/app.js?v=20261110-nav-2",
                 tree.xpath("//script[contains(@src, 'assets/app.js')]/@src"),
                 path.name,
             )

@@ -63,21 +63,36 @@ if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
   }
 }
 
-const isHome = !location.pathname.split('/').pop() || location.pathname.endsWith('/index.html');
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+const isHome = currentPage === 'index.html';
 const infoLinks = [
-  ['О компании', isHome ? '#about' : 'index.html#about'],
-  ['Каталог решений', 'catalog-solutions.html'],
-  ['Контакты', isHome ? '#contacts' : 'index.html#contacts']
+  ['О компании', 'about.html', currentPage === 'about.html'],
+  ['Каталог решений', 'catalog-solutions.html', currentPage === 'catalog-solutions.html'],
+  ['Контакты', isHome ? '#contacts' : currentPage === 'about.html' ? '#contacts' : 'index.html#contacts', false]
 ];
 const oldInfoLabels = new Set(['О компании', 'Бренды', 'Сертификаты', 'Каталог решений', 'FAQ', 'Контакты']);
 
 document.querySelectorAll('.site-header .nav-row-small').forEach((nav) => {
-  nav.replaceChildren(...infoLinks.map(([label, href]) => Object.assign(document.createElement('a'), { textContent: label, href })));
+  nav.replaceChildren(...infoLinks.map(([label, href, active]) => {
+    const link = Object.assign(document.createElement('a'), { textContent: label, href });
+    if (active) {
+      link.classList.add('active-nav');
+      link.setAttribute('aria-current', 'page');
+    }
+    return link;
+  }));
 });
 
 document.querySelectorAll('.site-header .mobile-menu').forEach((menu) => {
   [...menu.children].filter((item) => item.tagName === 'A' && oldInfoLabels.has(item.textContent.trim())).forEach((item) => item.remove());
-  const links = infoLinks.map(([label, href]) => Object.assign(document.createElement('a'), { textContent: label, href }));
+  const links = infoLinks.map(([label, href, active]) => {
+    const link = Object.assign(document.createElement('a'), { textContent: label, href });
+    if (active) {
+      link.classList.add('active-nav');
+      link.setAttribute('aria-current', 'page');
+    }
+    return link;
+  });
   const home = [...menu.children].find((item) => item.tagName === 'A' && item.textContent.trim() === 'Главная');
   home ? home.after(...links) : menu.prepend(...links);
 });
