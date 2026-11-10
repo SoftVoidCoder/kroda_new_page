@@ -12,6 +12,11 @@ class ComponentsCatalogTest(unittest.TestCase):
     def test_catalog_is_complete(self):
         tree = html.fromstring((ROOT / "components-accessories.html").read_text())
         self.assertEqual(len(tree.xpath("//*[@data-product]")), 21)
+        self.assertEqual(
+            len(tree.xpath("//*[@data-product]//a[normalize-space()='Заказать подбор']")),
+            21,
+        )
+        self.assertEqual(len(tree.xpath("//*[contains(@class,'installation-gallery')]/figure")), 5)
         for section_id in (
             "termination-kits",
             "mounting-tapes",
