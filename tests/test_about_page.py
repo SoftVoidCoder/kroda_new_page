@@ -32,6 +32,12 @@ class AboutPageTest(unittest.TestCase):
         self.assertEqual(len(self.tree.xpath("//footer[@id='contacts']")), 1)
         self.assertGreaterEqual(len(self.tree.xpath("//*[@data-lead-open]")), 4)
 
+    def test_project_gallery_uses_existing_images(self):
+        images = self.tree.xpath("//section[contains(@class, 'about-projects')]//img/@src")
+        self.assertEqual(len(images), 3)
+        for source in images:
+            self.assertTrue((ROOT / source).is_file(), source)
+
 
 if __name__ == "__main__":
     unittest.main()
