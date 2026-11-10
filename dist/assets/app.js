@@ -30,7 +30,7 @@ if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
         <div class="header-nav-wrap">
           <nav class="header-nav shell">
             <div class="nav-groups">
-              <div class="nav-row nav-row-small"><a href="index.html#about">О компании</a><a href="index.html#brands">Бренды</a><a href="index.html#certificates">Сертификаты</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакты</a></div>
+              <div class="nav-row nav-row-small"><a href="index.html#about">О компании</a><a href="catalog-solutions.html">Каталог решений</a><a href="index.html#contacts">Контакты</a></div>
               <div class="nav-row">
                 <div class="nav-dropdown"><a class="nav-trigger" href="industrial-solutions.html">Промышленный электрообогрев <span>⌄</span></a><div class="nav-dropdown-menu"><a href="industrial-small.html">Обогрев малых промышленных объектов</a><a href="equipment-heating.html">Электрообогрев оборудования</a><a href="plastic-tanks.html">Обогрев пластиковых ёмкостей</a><a href="large-tanks-heating.html">Обогрев больших ёмкостей</a><a href="pipeline-heating.html">Электрообогрев трубопроводов</a><a href="roof-heating.html">Обогрев кровли</a><a href="surface-heating.html">Обогрев открытых площадок</a><a href="entrance-heating.html">Обогрев входных групп</a><a href="wellhead-heating.html">Обогрев кустовой арматуры</a></div></div>
                 <div class="nav-dropdown"><a class="nav-trigger active-nav" href="household-solutions.html">Бытовые решения <span>⌄</span></a><div class="nav-dropdown-menu"><a href="pipe-freeze-protection.html">Защита труб от замерзания</a><a href="pipeline-temperature-maintenance.html">Стабильная температура трубопроводов</a><a href="underfloor-heating.html">Тёплый пол</a><a href="household-roof-gutter-heating.html">Обогрев кровли и водостоков</a><a href="household-entrance-heating.html">Обогрев ступеней, лестниц и входов</a><a href="household-open-area-heating.html">Обогрев открытых площадок</a><a href="household-reservoir-heating.html">Обогрев резервуаров</a><a href="household-soil-heating.html">Обогрев грунта</a></div></div>
@@ -40,7 +40,7 @@ if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
             <div class="header-actions"><a class="button button-primary" href="#request">Запросить расчёт</a></div>
           </nav>
           <nav class="mobile-menu" id="mobile-menu" hidden>
-            <a href="index.html">Главная</a><a href="index.html#about">О компании</a><a href="index.html#brands">Бренды</a><a href="index.html#certificates">Сертификаты</a><a href="index.html#faq">FAQ</a><a href="index.html#contacts">Контакты</a>
+            <a href="index.html">Главная</a><a href="index.html#about">О компании</a><a href="catalog-solutions.html">Каталог решений</a><a href="index.html#contacts">Контакты</a>
             <strong>Промышленный электрообогрев</strong><a class="mobile-sub" href="industrial-solutions.html">Все решения</a><a class="mobile-sub" href="industrial-small.html">Малые промышленные объекты</a><a class="mobile-sub" href="equipment-heating.html">Оборудование</a><a class="mobile-sub" href="pipeline-heating.html">Трубопроводы</a>
             <strong>Бытовые решения</strong><a class="mobile-sub" href="household-solutions.html">Все решения</a><a class="mobile-sub" href="pipe-freeze-protection.html">Защита труб</a><a class="mobile-sub" href="pipeline-temperature-maintenance.html">Температура трубопроводов</a><a class="mobile-sub" href="underfloor-heating.html">Тёплый пол</a><a class="mobile-sub" href="household-roof-gutter-heating.html">Кровля и водостоки</a><a class="mobile-sub" href="household-entrance-heating.html">Ступени и входы</a><a class="mobile-sub" href="household-open-area-heating.html">Открытые площадки</a><a class="mobile-sub" href="household-reservoir-heating.html">Резервуары</a><a class="mobile-sub" href="household-soil-heating.html">Грунт</a>
           </nav>
@@ -62,6 +62,25 @@ if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
       </footer>`;
   }
 }
+
+const isHome = !location.pathname.split('/').pop() || location.pathname.endsWith('/index.html');
+const infoLinks = [
+  ['О компании', isHome ? '#about' : 'index.html#about'],
+  ['Каталог решений', 'catalog-solutions.html'],
+  ['Контакты', isHome ? '#contacts' : 'index.html#contacts']
+];
+const oldInfoLabels = new Set(['О компании', 'Бренды', 'Сертификаты', 'Каталог решений', 'FAQ', 'Контакты']);
+
+document.querySelectorAll('.site-header .nav-row-small').forEach((nav) => {
+  nav.replaceChildren(...infoLinks.map(([label, href]) => Object.assign(document.createElement('a'), { textContent: label, href })));
+});
+
+document.querySelectorAll('.site-header .mobile-menu').forEach((menu) => {
+  [...menu.children].filter((item) => item.tagName === 'A' && oldInfoLabels.has(item.textContent.trim())).forEach((item) => item.remove());
+  const links = infoLinks.map(([label, href]) => Object.assign(document.createElement('a'), { textContent: label, href }));
+  const home = [...menu.children].find((item) => item.tagName === 'A' && item.textContent.trim() === 'Главная');
+  home ? home.after(...links) : menu.prepend(...links);
+});
 
 document.querySelectorAll('.site-header a').forEach((link) => {
   if (link.textContent.trim() === 'Подобрать кабель') link.href = 'heating-cable.html';
