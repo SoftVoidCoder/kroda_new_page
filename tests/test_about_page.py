@@ -38,6 +38,12 @@ class AboutPageTest(unittest.TestCase):
         for source in images:
             self.assertTrue((ROOT / source).is_file(), source)
 
+    def test_client_section_uses_existing_logos(self):
+        logos = self.tree.xpath("//div[contains(@class, 'client-list')]//img")
+        self.assertEqual([logo.get("alt") for logo in logos], ["Газпром", "Транснефть", "Интер РАО", "PepsiCo"])
+        for logo in logos:
+            self.assertTrue((ROOT / logo.get("src")).is_file(), logo.get("src"))
+
 
 if __name__ == "__main__":
     unittest.main()
