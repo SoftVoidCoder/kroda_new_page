@@ -38,6 +38,17 @@ class AboutPageTest(unittest.TestCase):
         for source in images:
             self.assertTrue((ROOT / source).is_file(), source)
 
+    def test_approved_copy_and_hero(self):
+        page_text = " ".join(self.tree.text_content().split())
+        hero = self.tree.xpath("//section[contains(@class, 'about-hero')]/img")[0]
+        self.assertEqual(hero.get("src"), "assets/industrial/pipeline-node.webp")
+        self.assertIn("Экспертиза и производственные компетенции", page_text)
+        self.assertIn("Какой результат вы получите", page_text)
+        self.assertIn("Расчёт, комплектное оборудование и решения для действующих промышленных объектов.", page_text)
+        self.assertIn("В нашем портфолио компании — представители нефтяной, газовой, энергетической, химической и пищевой отраслей", page_text)
+        self.assertNotIn("Инженерная экспертиза", page_text)
+        self.assertNotIn("Инженерный результат", page_text)
+
     def test_client_section_uses_existing_logos(self):
         logos = self.tree.xpath("//div[contains(@class, 'client-list')]//img")
         self.assertEqual([logo.get("alt") for logo in logos], ["Газпром", "Транснефть", "Интер РАО", "PepsiCo"])
