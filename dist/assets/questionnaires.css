@@ -1,0 +1,45 @@
+.questionnaires-page{background:#f5f8f6}
+.questionnaires-page [hidden]{display:none!important}
+.questionnaires-main{padding:56px 0 96px}
+.questionnaires-intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);gap:64px;align-items:end;margin-bottom:42px}
+.questionnaires-intro h1{max-width:780px;margin:0;font-size:clamp(2.65rem,4.8vw,5rem);line-height:.98;letter-spacing:-.035em}
+.questionnaires-intro p{max-width:670px;margin:0;color:var(--muted);font-size:1rem;line-height:1.7}
+.questionnaire-picker{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.questionnaire-picker a{display:flex;min-height:150px;padding:24px;align-items:flex-start;justify-content:space-between;gap:18px;flex-direction:column;font-weight:700;line-height:1.35}
+.questionnaire-picker a+a{border-left:1px solid var(--line)}
+.questionnaire-picker span{color:var(--green-700);font-size:.75rem}
+.questionnaire-picker a:hover,.questionnaire-picker a:focus-visible{background:var(--mint);outline:2px solid var(--green-700);outline-offset:-2px}
+.questionnaire-shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:36px;align-items:start}
+.questionnaire-aside{position:sticky;top:24px;padding:26px;border-radius:var(--radius);background:var(--green-900);color:#fff}
+.questionnaire-aside a{display:block;margin-bottom:24px;color:#cce9da;font-size:.78rem;font-weight:700}
+.questionnaire-aside h2{margin:0 0 12px;font-size:1.4rem}
+.questionnaire-aside p{margin:0;color:#d8ebe1;font-size:.82rem;line-height:1.6}
+.questionnaire-form{display:grid;gap:22px}
+.questionnaire-form>header{padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.questionnaire-form>header h2{margin:0 0 10px;font-size:clamp(2rem,3vw,3rem)}
+.questionnaire-form>header p{max-width:720px;margin:0;color:var(--muted)}
+.questionnaire-form fieldset{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0;padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.questionnaire-form legend{padding:0 10px;color:var(--green-900);font-size:1.08rem;font-weight:800}
+.questionnaire-form label,.field-group{display:grid;gap:7px;color:#263a31;font-size:.78rem;font-weight:700}
+.questionnaire-form input,.questionnaire-form select,.questionnaire-form textarea{width:100%;min-height:48px;border:1px solid #bfcac4;border-radius:6px;background:#fff;padding:11px 13px;color:var(--ink)}
+.questionnaire-form textarea{min-height:104px;resize:vertical}
+.questionnaire-form input:focus,.questionnaire-form select:focus,.questionnaire-form textarea:focus{border-color:var(--green-700);outline:3px solid rgba(3,124,69,.14)}
+.questionnaire-form .wide{grid-column:1/-1}
+.choice-group{display:flex;flex-wrap:wrap;gap:10px}
+.choice-group label{display:flex;min-height:44px;padding:10px 12px;align-items:center;gap:8px;border:1px solid var(--line);border-radius:6px;background:#f8faf9;font-weight:600}
+.choice-group input{width:17px;min-height:17px;margin:0;accent-color:var(--green-700)}
+.repeat-list{display:grid;gap:12px}
+.repeat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:18px;border:1px solid var(--line);border-radius:6px;background:#f8faf9}
+.repeat-row h3{grid-column:1/-1;margin:0;color:var(--green-900);font-size:.9rem}
+.repeat-row--five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.repeat-action{justify-self:start}
+.form-note{padding:18px 20px;border:1px solid #bfdccc;border-radius:6px;background:var(--mint);color:#315f49;font-size:.8rem;line-height:1.55}
+.questionnaire-submit{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 30px;border-radius:var(--radius);background:var(--green-900);color:#fff}
+.questionnaire-submit p{max-width:650px;margin:0;color:#d8ebe1;font-size:.8rem}
+.questionnaire-submit .button{flex:0 0 auto;background:#fff;color:var(--green-900)}
+.questionnaire-status{margin:0;color:#fff;font-weight:700}
+.questionnaire-status.is-error{color:#ffd8d8}
+.honeypot{position:absolute!important;left:-9999px!important}
+@media(max-width:1040px){.questionnaires-intro{grid-template-columns:1fr;gap:20px}.questionnaire-picker{grid-template-columns:repeat(2,1fr)}.questionnaire-picker a:nth-child(3){border-left:0;border-top:1px solid var(--line)}.questionnaire-picker a:nth-child(4){border-top:1px solid var(--line)}.questionnaire-shell{grid-template-columns:1fr}.questionnaire-aside{position:static}.repeat-row--five{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){.questionnaires-main{padding:34px 0 64px}.questionnaires-intro h1{font-size:2.45rem}.questionnaire-picker{grid-template-columns:1fr}.questionnaire-picker a{min-height:105px}.questionnaire-picker a+a,.questionnaire-picker a:nth-child(3),.questionnaire-picker a:nth-child(4){border-left:0;border-top:1px solid var(--line)}.questionnaire-form fieldset{grid-template-columns:1fr;padding:22px 16px}.questionnaire-form .wide{grid-column:auto}.repeat-row,.repeat-row--five{grid-template-columns:1fr}.repeat-row h3{grid-column:auto}.questionnaire-form>header{padding:26px 20px}.questionnaire-submit{align-items:stretch;flex-direction:column;padding:24px 20px}.questionnaire-submit .button{width:100%}}
+@media(prefers-reduced-motion:reduce){.questionnaire-picker a{transition:none}}

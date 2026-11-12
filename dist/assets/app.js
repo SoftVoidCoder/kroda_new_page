@@ -65,6 +65,28 @@ if (legacyHouseholdPages.has(location.pathname.split('/').pop())) {
 
 const currentPage = location.pathname.split('/').pop() || 'index.html';
 const isHome = currentPage === 'index.html';
+const questionnaireByPage = {
+  'pipeline-heating.html': 'pipelines',
+  'plastic-tanks.html': 'tanks',
+  'large-tanks-heating.html': 'tanks',
+  'household-reservoir-heating.html': 'tanks',
+  'roof-heating.html': 'roof',
+  'household-roof-gutter-heating.html': 'roof',
+  'surface-heating.html': 'open-areas',
+  'household-open-area-heating.html': 'open-areas',
+  'entrance-heating.html': 'open-areas',
+  'household-entrance-heating.html': 'open-areas'
+};
+
+function questionnaireHref(label = '') {
+  const normalized = label.toLowerCase();
+  const type = normalized.includes('трубопровод') ? 'pipelines'
+    : normalized.includes('резервуар') || normalized.includes('ёмкост') ? 'tanks'
+      : normalized.includes('кровл') ? 'roof'
+        : normalized.includes('площад') || normalized.includes('входн') || normalized.includes('ступен') ? 'open-areas'
+          : questionnaireByPage[currentPage];
+  return type ? `questionnaires.html?type=${type}` : 'questionnaires.html';
+}
 const infoLinks = [
   ['О компании', 'about.html', currentPage === 'about.html'],
   ['Каталог решений', 'catalog-solutions.html', currentPage === 'catalog-solutions.html'],
@@ -102,8 +124,7 @@ document.querySelectorAll('.site-header a').forEach((link) => {
 });
 
 document.querySelectorAll('.site-header .header-actions').forEach((actions) => {
-  if (actions.querySelector('.button-outline[data-lead-open]') && actions.querySelector('.button-primary[data-lead-open]')) return;
-  actions.innerHTML = '<button class="button button-outline" type="button" data-lead-open="Опросный лист">Запросить опросный лист</button><button class="button button-primary" type="button" data-lead-open="Расчёт проекта">Запросить расчёт</button>';
+  actions.innerHTML = `<a class="button button-outline" href="${questionnaireHref()}">Заполнить опросный лист</a><button class="button button-primary" type="button" data-lead-open="Расчёт проекта">Запросить расчёт</button>`;
 });
 
 document.querySelectorAll('.site-header .mobile-menu').forEach((menu) => {
@@ -122,14 +143,22 @@ document.querySelectorAll('.site-header .mobile-menu').forEach((menu) => {
     primary.textContent = 'Запросить расчёт';
     menu.append(primary);
   }
-  if (!menu.querySelector('.button-outline[data-lead-open]')) {
-    const outline = document.createElement('button');
+  if (!menu.querySelector('a[href^="questionnaires.html"]')) {
+    const outline = document.createElement('a');
     outline.className = 'button button-outline';
-    outline.type = 'button';
-    outline.dataset.leadOpen = 'Опросный лист';
-    outline.textContent = 'Запросить опросный лист';
+    outline.href = questionnaireHref();
+    outline.textContent = 'Заполнить опросный лист';
     primary.before(outline);
   }
+});
+
+document.querySelectorAll('[data-lead-open]').forEach((button) => {
+  if (!button.dataset.leadOpen.toLowerCase().includes('опросный лист')) return;
+  const link = document.createElement('a');
+  link.className = button.className;
+  link.href = questionnaireHref(button.dataset.leadOpen);
+  link.textContent = 'Заполнить опросный лист';
+  button.replaceWith(link);
 });
 
 if (!document.querySelector('#lead-dialog')) {

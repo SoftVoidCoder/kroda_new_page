@@ -46,7 +46,7 @@ class NavigationTest(unittest.TestCase):
         for path in ROOT.glob("*.html"):
             tree = html.fromstring(path.read_text())
             self.assertIn(
-                "assets/app.js?v=20261110-nav-2",
+                "assets/app.js?v=20261112-questionnaires-1",
                 tree.xpath("//script[contains(@src, 'assets/app.js')]/@src"),
                 path.name,
             )
