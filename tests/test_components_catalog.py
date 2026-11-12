@@ -29,6 +29,22 @@ class ComponentsCatalogTest(unittest.TestCase):
         text = " ".join(tree.text_content().split())
         for value in ("1 050 ₽", "900 ₽", "1 150 ₽", "550 ₽", "850 ₽"):
             self.assertIn(value, text)
+        for value in ("до 200 °C", "до 135 °C", "140 × 140 × 79 мм", "от −60 до +130 °C"):
+            self.assertIn(value, text)
+
+    def test_mockup_intro_and_pes_g_passport(self):
+        tree = html.fromstring((ROOT / "components-accessories.html").read_text())
+        text = " ".join(tree.text_content().split())
+        self.assertIn("Всё необходимое для монтажа", text)
+        self.assertIn("Подбор и монтаж электрических соединений", text)
+        self.assertEqual(len(tree.xpath("//section[contains(@class,'components-directory')]//nav/a")), 6)
+        passport = ROOT / "assets/components/passport-pes-g-lavita.pdf"
+        self.assertGreater(passport.stat().st_size, 500_000)
+        self.assertTrue(passport.read_bytes().startswith(b"%PDF"))
+        self.assertEqual(
+            tree.xpath("//a[contains(@href,'passport-pes-g-lavita.pdf')]/@href"),
+            ["assets/components/passport-pes-g-lavita.pdf"],
+        )
 
     def test_tkr_uses_tkr_values_only(self):
         tree = html.fromstring((ROOT / "component-tkr.html").read_text())

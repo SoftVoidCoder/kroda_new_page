@@ -55,6 +55,13 @@ class AboutPageTest(unittest.TestCase):
         for logo in logos:
             self.assertTrue((ROOT / logo.get("src")).is_file(), logo.get("src"))
 
+    def test_other_tasks_link_to_tilda_pages(self):
+        links = self.tree.xpath("//div[contains(@class,'expertise-grid')]/a/@href")
+        self.assertEqual(len(links), 6)
+        self.assertTrue(all(link.startswith("https://korda-izol.ru/") for link in links))
+        self.assertIn("https://korda-izol.ru/tkanevye-kompensatory/", links)
+        self.assertIn("https://korda-izol.ru/shumoizolyacionnye-chehly/", links)
+
 
 if __name__ == "__main__":
     unittest.main()

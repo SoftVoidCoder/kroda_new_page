@@ -10,9 +10,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css?v=20261027-buttons">
-  <link rel="stylesheet" href="assets/components.css?v=20261110-catalog-5">
+  <link rel="stylesheet" href="assets/components.css?v=20261112-catalog-6">
 </head>
 <body class="inner-page components-page">
+  <!--
+  THESIS: Полный каталог монтажных комплектующих без отдельного визуального мира и без неподтверждённых данных.
+  OWN-WORLD: Действующая зелёная палитра КОРДА, Montserrat, спокойная инженерная сетка и белые товарные изображения.
+  STORY: Посетитель понимает назначение раздела, выбирает одну из шести групп, сверяет характеристики и запрашивает подбор.
+  FIRST VIEWPORT: Крупный заголовок и описание слева, два реальных товара справа, каталог и действие видны сразу.
+  FORM: Точное расширение существующей страницы по переданному макету; концептуальный выбор не требовался.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
   <a class="skip-link" href="#main">К основному содержанию</a>
   <header class="site-header">
     <div class="header-primary shell">
@@ -34,8 +42,8 @@
   <main id="main" class="inner-main">
     <section class="components-hero shell">
       <div>
-        <h1>Комплектующие и аксессуары</h1>
-        <p>Всё необходимое для подключения, герметизации и надёжного монтажа систем электрообогрева: от комплектов заделки до крепежа для кровли.</p>
+        <h1>Комплектующие и аксессуары для греющего кабеля</h1>
+        <p>Муфты, термоусадочные трубки, монтажные ленты и готовые наборы для надёжного подключения и монтажа систем электрообогрева.</p>
         <div class="components-actions">
           <a class="button button-primary" href="#catalog">Смотреть каталог</a>
           <a class="button button-outline" href="mailto:zayavka@korda.spb.ru">Запросить подбор</a>
@@ -48,15 +56,19 @@
     </section>
 
     <section class="components-directory shell" aria-labelledby="directory-title">
-      <h2 id="directory-title">Выберите раздел</h2>
+      <div class="components-directory__intro">
+        <h2 id="directory-title">Всё необходимое для монтажа</h2>
+        <p>Подберём аксессуары с учётом типа кабеля, способа подключения и условий эксплуатации.</p>
+      </div>
       <nav aria-label="Разделы комплектующих">
-        <a href="#termination-kits">Комплекты для муфтирования</a>
-        <a href="#mounting-tapes">Крепёжные ленты</a>
-        <a href="#cable-glands">Кабельные вводы</a>
-        <a href="#power-cables">Силовые шнуры</a>
-        <a href="#junction-boxes">Монтажные коробки</a>
-        <a href="#roof-fasteners">Крепёж для кровли</a>
+        <a href="#termination-kits"><strong>Комплекты для муфтирования</strong><span>Соединение кабеля, питание и герметизация окончаний.</span></a>
+        <a href="#mounting-tapes"><strong>Крепёжные ленты</strong><span>Фиксация кабеля на трубах и монтажных поверхностях.</span></a>
+        <a href="#cable-glands"><strong>Кабельные вводы</strong><span>Герметичный ввод под изоляцию, в трубу и оборудование.</span></a>
+        <a href="#power-cables"><strong>Силовые шнуры</strong><span>Готовое подключение греющего кабеля к электросети.</span></a>
+        <a href="#junction-boxes"><strong>Монтажные коробки</strong><span>Защищённое размещение клемм и соединений.</span></a>
+        <a href="#roof-fasteners"><strong>Крепёж для кровли</strong><span>Зажимы для желобов, водостоков, воронок и карнизов.</span></a>
       </nav>
+      <p class="components-safety">Подбор и монтаж электрических соединений выполняют по инструкции производителя с соблюдением требований электробезопасности.</p>
     </section>
 
     <div class="components-catalog shell" id="catalog">
@@ -68,7 +80,7 @@
         <div class="component-grid">
           <article class="component-card" data-product>
             <div class="component-card__media"><img src="assets/components/pes-g.jpeg" alt="Комплект для муфтирования кабеля PES-G" loading="lazy"></div>
-            <div class="component-card__body"><h3>Комплект для муфтирования кабеля PES-G</h3><p>Для соединения секций саморегулирующегося греющего кабеля Lavita между собой или с питающими проводами, а также изготовления концевых муфт. Производство: Южная Корея.</p><div class="component-card__meta"><strong class="component-price">300 ₽</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div>
+            <div class="component-card__body"><h3>Комплект для муфтирования кабеля PES-G</h3><p>Для соединения секций саморегулирующегося греющего кабеля Lavita между собой или с питающими проводами, а также изготовления концевых муфт. Производство: Южная Корея.</p><div class="component-card__meta"><strong class="component-price">300 ₽</strong><a class="component-link" href="assets/components/passport-pes-g-lavita.pdf" target="_blank" rel="noopener">Паспорт PDF →</a><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div>
           </article>
           <article class="component-card" data-product>
             <a class="component-card__media" href="component-tkr.html"><img src="assets/components/tkr.png" alt="Комплект заделки TKR EKF PROxima" loading="lazy"></a>
@@ -88,10 +100,10 @@
         </div>
         <div class="component-grid component-grid--two">
           <article class="component-card component-card--compact" data-product>
-            <div class="component-card__body"><h3>Крепёжная лента FT/HTM</h3><p>Для фиксации греющего кабеля при монтаже систем электрообогрева.</p><div class="component-card__meta"><strong class="component-price">1 050 ₽ <small>за штуку</small></strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div>
+            <div class="component-card__body"><h3>Стекловолоконная самоклеящаяся лента FT/HTM</h3><p>Для крепления греющего кабеля на трубах с высокой температурой. Постоянное воздействие до 200 °C, длина 33 м, ширина 11 мм, клеевой слой на основе каучука.</p><div class="component-card__meta"><strong class="component-price">1 050 ₽ <small>за штуку</small></strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div>
           </article>
           <article class="component-card component-card--compact" data-product>
-            <div class="component-card__body"><h3>Крепёжная лента FT/HTS</h3><p>Для фиксации греющего кабеля при монтаже систем электрообогрева.</p><div class="component-card__meta"><strong class="component-price">900 ₽ <small>за штуку</small></strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div>
+            <div class="component-card__body"><h3>Стекловолоконная самоклеящаяся лента FT/HTS</h3><p>Для крепления греющего кабеля на трубах с высокой температурой. Постоянное воздействие до 135 °C, длина 50 м, ширина 12 мм, модифицированный каучуковый клеевой слой.</p><div class="component-card__meta"><strong class="component-price">900 ₽ <small>за штуку</small></strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div>
           </article>
         </div>
       </section>
@@ -105,7 +117,7 @@
           <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/lavita-pipe-34-1.jpeg" alt="Комплект Lavita для установки кабеля внутрь трубы 3/4 и 1 дюйм" loading="lazy"></div><div class="component-card__body"><h3>Комплект Lavita для установки кабеля внутрь трубы 3/4″ и 1″</h3><p>В комплект входит муфта с сальником. Возможна установка в переходники с резьбой 3/4″ и 1″.</p><div class="component-card__meta"><strong class="component-price">1 150 ₽</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
           <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/lavita-pipe-12.png" alt="Комплект Lavita для установки кабеля внутрь трубы 1/2 дюйма" loading="lazy"></div><div class="component-card__body"><h3>Комплект Lavita для установки кабеля внутрь трубы 1/2″</h3><p>В комплект входит муфта с сальником. Возможна установка в переходники с резьбой 1/2″.</p><div class="component-card__meta"><strong class="component-price">550 ₽</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
           <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/lek-u.png" alt="Кабельный ввод LEK/U" loading="lazy"></div><div class="component-card__body"><h3>Кабельный ввод LEK/U</h3><p>Для ввода греющего кабеля под теплоизоляцию. Пластиковый корпус, два сальника, стальная крепёжная пластина и стопорная гайка.</p><div class="component-card__meta"><strong class="component-price">650 ₽</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
-          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/svvkm-20.png" alt="Взрывозащищённый ввод СВВКм-20" loading="lazy"></div><div class="component-card__body"><h3>Взрывозащищённый ввод СВВКм-20</h3><p>Для монтажа небронированного кабеля в металлорукаве во взрывозащищённые корпуса. Никелированная латунь, контргайка и уплотнительное кольцо.</p><div class="component-card__meta"><strong class="component-price">700 ₽</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
+          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/svvkm-20.png" alt="Взрывозащищённый ввод СВВКм-20" loading="lazy"></div><div class="component-card__body"><h3>Взрывозащищённый ввод СВВКм-20</h3><p>Никелированная латунь, резьба M20 × 1,5, кабель 6–14 мм, металлорукав МРПИ-15. Защита IP66/68, 1ExdIICGbX и ExtbIIICDbx; температура эксплуатации от −60 до +130 °C.</p><div class="component-card__meta"><strong class="component-price">700 ₽</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
         </div>
       </section>
 
@@ -126,9 +138,9 @@
           <p>Ударопрочные монтажные коробки ABOX с клеммниками для аккуратного и удобного подключения оборудования.</p>
         </div>
         <div class="component-grid">
-          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/abox-100.png" alt="Монтажная коробка ABOX 100 с клеммником" loading="lazy"></div><div class="component-card__body"><h3>Монтажная коробка ABOX 100 с клеммником</h3><p>Коробка средних размеров из ударопрочного полистирола с большим монтажным пространством и высокорасположенными клеммами.</p><div class="component-card__meta"><strong class="component-price">Цена по запросу</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
-          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/abox-60.png" alt="Монтажная коробка ABOX 60 с клеммником" loading="lazy"></div><div class="component-card__body"><h3>Монтажная коробка ABOX 60 с клеммником</h3><p>Коробка из ударопрочного полистирола. Большое внутреннее пространство и высокорасположенные клеммы облегчают монтаж.</p><div class="component-card__meta"><strong class="component-price">Цена по запросу</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
-          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/abox-40.png" alt="Монтажная коробка ABOX 40 с клеммником" loading="lazy"></div><div class="component-card__body"><h3>Монтажная коробка ABOX 40 с клеммником</h3><p>Небольшая монтажная коробка из ударопрочного полистирола.</p><div class="component-card__meta"><strong class="component-price">Цена по запросу</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
+          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/abox-100.png" alt="Монтажная коробка ABOX 100 с клеммником" loading="lazy"></div><div class="component-card__body"><h3>Монтажная коробка ABOX 100 с клеммником</h3><p>140 × 140 × 79 мм, вводы M32 с диапазоном уплотнения 13–23 мм, IP65. Высокорасположенная пятиполюсная клемма 10 мм².</p><div class="component-card__meta"><strong class="component-price">Цена по запросу</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
+          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/abox-60.png" alt="Монтажная коробка ABOX 60 с клеммником" loading="lazy"></div><div class="component-card__body"><h3>Монтажная коробка ABOX 60 с клеммником</h3><p>110 × 110 × 67 мм, вводы M25 с диапазоном уплотнения 9–18,5 мм, IP65. Высокорасположенная пятиполюсная клемма 6 мм².</p><div class="component-card__meta"><strong class="component-price">Цена по запросу</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
+          <article class="component-card" data-product><div class="component-card__media"><img src="assets/components/abox-40.png" alt="Монтажная коробка ABOX 40 с клеммником" loading="lazy"></div><div class="component-card__body"><h3>Монтажная коробка ABOX 40 с клеммником</h3><p>93 × 93 × 55 мм, вводы M20 с диапазоном уплотнения 2–16 мм, IP65. Пятиполюсная клемма 4 мм².</p><div class="component-card__meta"><strong class="component-price">Цена по запросу</strong><a class="component-order" href="mailto:zayavka@korda.spb.ru?subject=Заказать%20подбор%20комплектующих">Заказать подбор</a></div></div></article>
         </div>
       </section>
 
