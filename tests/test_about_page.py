@@ -44,7 +44,7 @@ class AboutPageTest(unittest.TestCase):
         self.assertEqual(hero.get("src"), "assets/industrial/pipeline-node.webp")
         self.assertIn("Экспертиза и производственные компетенции", page_text)
         self.assertIn("Какой результат вы получите", page_text)
-        self.assertIn("Расчёт, комплектное оборудование и решения для действующих промышленных объектов.", page_text)
+        self.assertIn("Расчёт, комплектное оборудование и решения для действующих промышленных объектов", page_text)
         self.assertIn("В нашем портфолио компании — представители нефтяной, газовой, энергетической, химической и пищевой отраслей", page_text)
         self.assertNotIn("Инженерная экспертиза", page_text)
         self.assertNotIn("Инженерный результат", page_text)

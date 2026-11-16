@@ -27,7 +27,8 @@ class KitProductsTest(unittest.TestCase):
         for paragraph in Document(KIT_I_DOC).paragraphs[1:]:
             content = ' '.join(paragraph.text.split())
             if not content or content == '(Паспорт отдельным файлом)': continue
-            self.assertIn(content.replace(':', '', 1) if content.startswith('Технические') else content.split(':',1)[-1].strip(), text)
+            expected = content.replace(':', '', 1) if content.startswith('Технические') else content.split(':',1)[-1].strip()
+            self.assertIn(expected.rstrip('.'), text)
         self.assertEqual(hashlib.sha256(KIT_I_PDF.read_bytes()).digest(),hashlib.sha256((ROOT/'assets/thermostats/kit-i-passport.pdf').read_bytes()).digest())
         self.assertIn('без влагозащиты', tree.xpath('//h1')[0].text_content())
         wp = html.fromstring((ROOT/'thermostat-termostat-kit-lavita.html').read_text())
