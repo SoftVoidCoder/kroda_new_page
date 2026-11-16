@@ -180,6 +180,10 @@ if (!document.querySelector('#lead-dialog')) {
     </dialog>`);
 }
 
+document.querySelectorAll('.lead-form .consent span').forEach((text) => {
+  text.innerHTML = 'Согласен с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a>';
+});
+
 const menuButton = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 

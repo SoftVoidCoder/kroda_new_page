@@ -7,12 +7,15 @@ from scripts.remove_short_copy_periods import strip_short_copy
 
 
 DIST = Path(__file__).resolve().parents[1] / "dist"
+AUXILIARY_PAGES = {"privacy-policy.html", "spasibo.html"}
 
 
 class ShortCopyPunctuationTest(unittest.TestCase):
     def test_short_blocks_do_not_end_with_full_stop(self):
         offenders = []
         for path in sorted(DIST.glob("*.html")):
+            if path.name in AUXILIARY_PAGES:
+                continue
             _, changes = strip_short_copy(path.read_text(encoding="utf-8"))
             if changes:
                 offenders.append(f"{path.name}: {changes}")

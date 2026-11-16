@@ -2,10 +2,20 @@ const type = new URLSearchParams(location.search).get('type');
 const forms = [...document.querySelectorAll('[data-questionnaire-form]')];
 const selected = forms.find((form) => form.dataset.questionnaireForm === type);
 const requiredCheckboxGroups = ['heating_purpose[]', 'insulation_coverage[]', 'drawings_format[]', 'heated_area_types[]', 'delivery_scope[]'];
+const isPreview = location.hostname === 'softvoidcoder.github.io' || location.hostname === '127.0.0.1' || location.hostname === 'localhost';
 
 document.querySelector('[data-questionnaire-picker]').hidden = Boolean(selected);
 document.querySelector('[data-questionnaire-shell]').hidden = !selected;
 forms.forEach((form) => { form.hidden = form !== selected; });
+
+forms.forEach((form) => {
+  const consent = form.querySelector('input[name="consent"]')?.closest('label');
+  if (consent) consent.innerHTML = '<input name="consent" type="checkbox" value="on" required>Согласен с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a> *';
+  if (!isPreview) {
+    form.querySelector('.questionnaire-submit > div > p').textContent = 'После отправки опросный лист и вложения поступят специалисту КОРДА';
+    form.querySelector('.questionnaire-submit button').textContent = 'Отправить опросный лист';
+  }
+});
 
 if (selected) {
   document.title = `${selected.dataset.title} — КОРДА`;
@@ -52,7 +62,7 @@ forms.forEach((form) => {
       contact.focus();
       return;
     }
-    if (location.hostname === 'softvoidcoder.github.io' || location.hostname === '127.0.0.1' || location.hostname === 'localhost') {
+    if (isPreview) {
       event.preventDefault();
       status.textContent = 'Форма заполнена корректно. Передачу менеджеру подключит команда КОРДА.';
       status.classList.remove('is-error');

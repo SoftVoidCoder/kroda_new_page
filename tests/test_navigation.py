@@ -13,6 +13,7 @@ LEGACY_PAGES = {
     "household-reservoir-heating.html",
     "household-soil-heating.html",
 }
+AUXILIARY_PAGES = {"privacy-policy.html", "spasibo.html"}
 
 
 class NavigationTest(unittest.TestCase):
@@ -20,6 +21,8 @@ class NavigationTest(unittest.TestCase):
         pages = list(ROOT.glob("*.html"))
         self.assertTrue(pages)
         for path in pages:
+            if path.name in AUXILIARY_PAGES:
+                continue
             tree = html.fromstring(path.read_text())
             navs = tree.xpath(
                 "//*[contains(concat(' ', normalize-space(@class), ' '), ' site-header ')]"
@@ -44,6 +47,8 @@ class NavigationTest(unittest.TestCase):
 
     def test_navigation_script_is_cache_busted(self):
         for path in ROOT.glob("*.html"):
+            if path.name in AUXILIARY_PAGES:
+                continue
             tree = html.fromstring(path.read_text())
             self.assertIn(
                 "assets/app.js?v=20261112-questionnaires-1",
