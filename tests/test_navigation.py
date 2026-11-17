@@ -56,6 +56,20 @@ class NavigationTest(unittest.TestCase):
                 path.name,
             )
 
+    def test_system_product_cards_link_to_details(self):
+        cards = []
+        for path in ROOT.glob("*.html"):
+            tree = html.fromstring(path.read_text())
+            for card in tree.xpath("//article[contains(concat(' ', normalize-space(@class), ' '), ' industrial-product ')]"):
+                cards.append(card)
+                links = card.xpath(".//a[contains(concat(' ', normalize-space(@class), ' '), ' product-detail-link ')][@href]")
+                self.assertTrue(links, f"{path.name}: {' '.join(card.text_content().split())}")
+                for link in links:
+                    href = link.get("href")
+                    if "://" not in href:
+                        self.assertTrue((ROOT / href).is_file(), f"{path.name}: {href}")
+        self.assertTrue(cards)
+
 
 if __name__ == "__main__":
     unittest.main()
