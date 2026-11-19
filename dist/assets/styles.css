@@ -48,3 +48,12 @@
 .inner-page .industrial-hero .hero-actions>.button{width:240px;height:48px;min-height:48px;border-radius:8px}
 @media(max-width:1180px){.header-actions{display:none}}
 @media(max-width:560px){.inner-page .industrial-hero .hero-actions>.button{width:100%}}
+
+/* Keep the five desktop navigation items on one even rhythm. */
+@media(min-width:821px){
+  .nav-row:not(.nav-row-small){display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;align-items:stretch}
+  .nav-row:not(.nav-row-small)>a,.nav-row:not(.nav-row-small)>.nav-dropdown{display:flex;align-items:center;min-width:0;min-height:52px;line-height:1.35}
+  .nav-row:not(.nav-row-small)>a{width:100%}
+  .nav-trigger{display:inline;line-height:1.35}
+  .nav-trigger span{display:inline-block;margin-left:4px}
+}
